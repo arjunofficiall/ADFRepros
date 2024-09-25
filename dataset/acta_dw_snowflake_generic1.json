@@ -1,0 +1,105 @@
+{
+	"name": "acta_dw_snowflake_generic1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ACTA_DW Database",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "snowflake/Prod Instance/acta_dw"
+		},
+		"annotations": [],
+		"type": "SnowflakeTable",
+		"schema": [
+			{
+				"name": "MAILING_TYPE",
+				"type": "VARCHAR",
+				"precision": 100,
+				"scale": 0
+			},
+			{
+				"name": "MIN_RECENCY",
+				"type": "NUMBER",
+				"precision": 2,
+				"scale": 0
+			},
+			{
+				"name": "MAX_RECENCY",
+				"type": "NUMBER",
+				"precision": 3,
+				"scale": 0
+			},
+			{
+				"name": "HPC_RANGE",
+				"type": "VARCHAR",
+				"precision": 100,
+				"scale": 0
+			},
+			{
+				"name": "MIN_HPC",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "MAX_HPC",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "ASK1",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "ASK2",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "ASK3",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "ASK4",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "ASK1_2",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "ASK2_2",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "ASK3_2",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "ASK4_2",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "DFCI",
+			"table": "ASK_TABLE"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,68 @@
+{
+	"name": "3a_Export RowsSkipped Logs",
+	"properties": {
+		"activities": [
+			{
+				"name": "Log File If RowsSkipped",
+				"type": "IfCondition",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@greater(int(pipeline().parameters.RowsSkipped),0)",
+						"type": "Expression"
+					},
+					"ifTrueActivities": [
+						{
+							"name": "Load copyactivity-logs",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "3b_Load copyactivity-logs to Snowflake",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true,
+								"parameters": {
+									"FILE_ID": {
+										"value": "@pipeline().parameters.FILE_ID",
+										"type": "Expression"
+									},
+									"LogFileDirectory": {
+										"value": "@pipeline().parameters.LogFileDirectory",
+										"type": "Expression"
+									},
+									"RowsSkipped": {
+										"value": "@pipeline().parameters.RowsSkipped",
+										"type": "Expression"
+									}
+								}
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"RowsSkipped": {
+				"type": "string"
+			},
+			"FILE_ID": {
+				"type": "string"
+			},
+			"LogFileDirectory": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "SimioApp/FileTrack/ACTA"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-07-30T18:44:23Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,33 @@
+{
+	"name": "Snowflake Simio Prod Dynamic",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"Environment": {
+				"type": "string",
+				"defaultValue": "@pipeline().globalParameters.environment"
+			},
+			"DatabaseName": {
+				"type": "string",
+				"defaultValue": "SIMIO_PROD"
+			}
+		},
+		"annotations": [],
+		"type": "Snowflake",
+		"typeProperties": {
+			"authenticationType": "Basic",
+			"connectionString": "jdbc:snowflake://@{if(equals(linkedService().Environment, 'prod'), 'kh30122.west-us-2.azure', if(equals(linkedService().Environment, 'UAT'), 'ey73400.west-us-2.azure', 'xxx'))}.snowflakecomputing.com/?user=svcetlload&db=@{linkedService().DatabaseName}&warehouse=@{if(equals(linkedService().Environment, 'prod'), 'ETL_LARGE_WH', 'COMPUTE_WH')}&role=DATA_ADMIN_ROLE",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "simio_prod_keyvault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": {
+					"value": "@{if(equals(linkedService().Environment, 'prod'), 'SVCETLLOAD', if(equals(linkedService().Environment, 'UAT'), 'SVCETLLOAD-UAT-password', 'xxx'))}",
+					"type": "Expression"
+				}
+			}
+		}
+	}
+}

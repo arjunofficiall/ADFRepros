@@ -1,0 +1,11 @@
+{
+	"name": "simio_prod_keyvault",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://SIMIO-PROD-KEYVAULT.vault.azure.net/"
+		}
+	}
+}

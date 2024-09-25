@@ -1,0 +1,94 @@
+{
+	"name": "sfs_delimited_dynamic",
+	"properties": {
+		"description": "This dataset uses the sm_afs_uat_ftp fileshare. It is set up for delimited files such as .csv that do not have compression (e.g., zip or gz).",
+		"linkedServiceName": {
+			"referenceName": "simstwus2uatdata_sm_afs_uat_ftp",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Directory": {
+				"type": "string"
+			},
+			"FileName": {
+				"type": "string"
+			},
+			"Delimiter": {
+				"type": "string",
+				"defaultValue": ","
+			},
+			"QuoteChar": {
+				"type": "string",
+				"defaultValue": "\""
+			},
+			"EscapeChar": {
+				"type": "string",
+				"defaultValue": "\\"
+			},
+			"HasHeader": {
+				"type": "bool",
+				"defaultValue": true
+			},
+			"RowDelimiter": {
+				"type": "string",
+				"defaultValue": "\\r\\n"
+			},
+			"Encoding": {
+				"type": "string",
+				"defaultValue": "UTF-8"
+			},
+			"NullValue": {
+				"type": "string",
+				"defaultValue": "@coalesce(null)"
+			}
+		},
+		"folder": {
+			"name": "sm-afs-uat-ftp fileshare"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureFileStorageLocation",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().Directory",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": {
+				"value": "@dataset().Delimiter",
+				"type": "Expression"
+			},
+			"rowDelimiter": {
+				"value": "@dataset().RowDelimiter",
+				"type": "Expression"
+			},
+			"encodingName": {
+				"value": "@dataset().Encoding",
+				"type": "Expression"
+			},
+			"escapeChar": {
+				"value": "@dataset().EscapeChar",
+				"type": "Expression"
+			},
+			"firstRowAsHeader": {
+				"value": "@dataset().HasHeader",
+				"type": "Expression"
+			},
+			"nullValue": {
+				"value": "@dataset().NullValue",
+				"type": "Expression"
+			},
+			"quoteChar": {
+				"value": "@dataset().QuoteChar",
+				"type": "Expression"
+			}
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

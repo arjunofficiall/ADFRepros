@@ -1,0 +1,13 @@
+{
+	"name": "simio_file_share",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureFileStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=simiosharedstorageuat;EndpointSuffix=core.windows.net;",
+			"fileShare": "uat-container-volume",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDE1OUE0MDVFLUVDN0EtNEI3NC1CNzQ1LUE0NUNBODVFN0UyRV9lMjM4M2Q3NS03MjgyLTQwZmYtODk5NC1hNjZlMmM4OTZlZjQiDQp9"
+		}
+	}
+}

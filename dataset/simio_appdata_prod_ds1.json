@@ -1,0 +1,90 @@
+{
+	"name": "simio_appdata_prod_ds1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "simio_appdata_prod_db",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TableName": {
+				"type": "string",
+				"defaultValue": "FileHeader"
+			}
+		},
+		"folder": {
+			"name": "Azure SQL DBs"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "FileHeaderKey",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ClientId",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "FileType",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "FriendlyName",
+				"type": "varchar"
+			},
+			{
+				"name": "SystemName",
+				"type": "varchar"
+			},
+			{
+				"name": "FileVersion",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "FileDelimiter",
+				"type": "varchar"
+			},
+			{
+				"name": "CsvHeader",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "SheetNumber",
+				"type": "varchar"
+			},
+			{
+				"name": "BusinessKey",
+				"type": "varchar"
+			},
+			{
+				"name": "IsActive",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "CreatedDate",
+				"type": "datetimeoffset",
+				"scale": 7
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "datetimeoffset",
+				"scale": 7
+			}
+		],
+		"typeProperties": {
+			"schema": "appdata",
+			"table": {
+				"value": "@dataset().TableName",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

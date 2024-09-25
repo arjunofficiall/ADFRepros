@@ -1,0 +1,6 @@
+{
+	"name": "APTIntegrationRuntime",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

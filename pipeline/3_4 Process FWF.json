@@ -1,0 +1,155 @@
+{
+	"name": "3_4 Process FWF",
+	"properties": {
+		"activities": [
+			{
+				"name": "Reset Tables and Setup FWF SQL",
+				"type": "Script",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"linkedServiceName": {
+					"referenceName": "uat_snowflake_table_dynamic",
+					"type": "LinkedServiceReference",
+					"parameters": {
+						"Warehouse": "COMPUTE_WH",
+						"Database": "ACTA_DW",
+						"Role": "DATA_ADMIN_ROLE"
+					}
+				},
+				"typeProperties": {
+					"scripts": [
+						{
+							"type": "Query",
+							"text": {
+								"value": "CALL ACTA_DW.STAGE.CONVERT_FWF_USING_SQL_NO_COPY('@{pipeline().parameters.FileID}')",
+								"type": "Expression"
+							}
+						}
+					],
+					"scriptBlockExecutionTimeout": "02:00:00"
+				}
+			},
+			{
+				"name": "Write file to stage",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Reset Tables and Setup FWF SQL",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureFileStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SnowflakeSink",
+						"importSettings": {
+							"type": "SnowflakeImportCopyCommand"
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "engineeringstorage",
+							"type": "LinkedServiceReference"
+						},
+						"path": "stage/ACTA/staging"
+					},
+					"enableSkipIncompatibleRow": true
+				},
+				"inputs": [
+					{
+						"referenceName": "sfs_delimited_dynamic",
+						"type": "DatasetReference",
+						"parameters": {
+							"Directory": {
+								"value": "ClientRoot/@{pipeline().parameters.Directory}",
+								"type": "Expression"
+							},
+							"FileName": {
+								"value": "@pipeline().parameters.FileName",
+								"type": "Expression"
+							},
+							"Delimiter": "ThereIsNoDelimiterForThisDataSet",
+							"QuoteChar": "\"",
+							"EscapeChar": "\\",
+							"HasHeader": false,
+							"RowDelimiter": "\n",
+							"Encoding": "UTF-8",
+							"NullValue": "@coalesce(null)"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "simio_prod_dynamic",
+						"type": "DatasetReference",
+						"parameters": {
+							"Environment": {
+								"value": "@pipeline().globalParameters.environment",
+								"type": "Expression"
+							},
+							"SchemaName": "STAGE",
+							"TableName": {
+								"value": "FWF_STAGE_TABLE_@{pipeline().parameters.FileID}",
+								"type": "Expression"
+							},
+							"Role": "ACCOUNTADMIN",
+							"DatabaseName": "ACTA_DW"
+						}
+					}
+				]
+			}
+		],
+		"parameters": {
+			"FileID": {
+				"type": "string",
+				"defaultValue": "24426"
+			},
+			"Directory": {
+				"type": "string",
+				"defaultValue": "DFCI"
+			},
+			"FileName": {
+				"type": "string",
+				"defaultValue": "SALUTATIONS.txt"
+			},
+			"AppendedJSONMapping": {
+				"type": "string",
+				"defaultValue": "{\\\"type\\\": \\\"TabularTranslator\\\", \\\"mappings\\\": [{\\\"source\\\":{\\\"name\\\":\\\"SalutCode\\\"},\\\"sink\\\":{\\\"name\\\":\\\"SALUTCODE\\\"}},{\\\"source\\\":{\\\"name\\\":\\\"Description\\\"},\\\"sink\\\":{\\\"name\\\":\\\"SALUTATION\\\"}},{\\\"source\\\":{\\\"name\\\":\\\"FILE_ID\\\"},\\\"sink\\\":{\\\"name\\\":\\\"FILE_ID\\\"}},{\\\"source\\\":{\\\"name\\\":\\\"CLIENTID\\\"},\\\"sink\\\":{\\\"name\\\":\\\"CLIENTID\\\"}}]}"
+			}
+		},
+		"folder": {
+			"name": "SimioApp/FileTrack/ACTA"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-07-26T23:20:09Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

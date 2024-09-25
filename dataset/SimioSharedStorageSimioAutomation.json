@@ -1,0 +1,30 @@
+{
+	"name": "SimioSharedStorageSimioAutomation",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "engineeringstorage",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Directory": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "simio-automation"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": {
+					"value": "@dataset().Directory",
+					"type": "Expression"
+				},
+				"container": "simio-automation"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

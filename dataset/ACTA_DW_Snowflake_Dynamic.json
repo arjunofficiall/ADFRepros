@@ -1,0 +1,48 @@
+{
+	"name": "ACTA_DW_Snowflake_Dynamic",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ACTA_DW Database",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SnowflakeTable",
+		"schema": [
+			{
+				"name": "CLIENTKEY",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "CLIENTID",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "CLIENTNAME",
+				"type": "VARCHAR",
+				"precision": 100,
+				"scale": 0
+			},
+			{
+				"name": "AGENCYKEY",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "SECONDARYAGENCYKEY",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "DTA",
+			"table": "DIMCLIENT"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

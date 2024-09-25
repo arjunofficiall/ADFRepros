@@ -1,0 +1,53 @@
+{
+	"name": "simio_prod_dynamic",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Snowflake Simio Prod Dynamic",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"Environment": "@pipeline().globalParameters.environment",
+				"DatabaseName": {
+					"value": "@dataset().DatabaseName",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"Environment": {
+				"type": "string",
+				"defaultValue": "Production"
+			},
+			"SchemaName": {
+				"type": "string"
+			},
+			"TableName": {
+				"type": "string"
+			},
+			"Role": {
+				"type": "string",
+				"defaultValue": "ACCOUNTADMIN"
+			},
+			"DatabaseName": {
+				"type": "string",
+				"defaultValue": "SIMIO_PROD"
+			}
+		},
+		"folder": {
+			"name": "snowflake"
+		},
+		"annotations": [],
+		"type": "SnowflakeTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().SchemaName",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().TableName",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
