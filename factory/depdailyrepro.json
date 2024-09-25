@@ -1,0 +1,9 @@
+{
+	"name": "depdailyrepro",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "a863c3d6-a24c-4c77-ab1b-6b9a7956ac9f",
+		"tenantId": "16b3c013-d300-468d-ac64-7eda0820b6d3"
+	}
+}
