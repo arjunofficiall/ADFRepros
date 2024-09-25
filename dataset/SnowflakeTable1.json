@@ -1,0 +1,523 @@
+{
+	"name": "SnowflakeTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Snowflakerepro",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SnowflakeV2Table",
+		"schema": [
+			{
+				"name": "SOURCECODE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "CLIENTID",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "CHAPTERKEY",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "CAMPAIGNCODE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "CAMPAIGNNAME",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "CAMPAIGNPROGRAMTYPE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "APPEALNAME",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "MEDIAEVENTDATE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "MASTERMEDIAKEY",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "SEGMENTDESCRIPTION",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "MEDIANAME",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "INHOMEDATEKEY",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMEDIATYPE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMEDIAPURCHASEORDER",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "FULFILLMENTPREMIUMCOSTKEY",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEPACKAGECODE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEPACKAGEPANEL",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEPACKAGEDESCRIPTION",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEPREMIUMFREEMIUMNONFREEMIUM",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEPREMIUMFREEMIUMTYPE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEOFFER",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEAUDIENCE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEHOUSEHOLDIMPRESSIONS",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEDIGITALIMPRESSIONS",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCESPOTS",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCESENT",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "COSTPERPIECE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "PROGRAM",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "CHANNEL",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "CHANNELTYPE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "CLIENTMEDIACOST",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "FISCALYEAR",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "FREQUENCY",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "FULFILLMENTCOST",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "JOBDESCRIPTION",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "MEDIASEGMENT",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "MEDIACOST",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "MEDIAMARKUP",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "MERGECOST",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "MERGEMARKUP",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "MONETARY",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "OTHERSEGMENTATION",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "PACKAGECOST",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "POSTAGECOST",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "PREMIUMCOST",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "RECENCY",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "ROLLOUTPACKAGECOST",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SEGMENTCODE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SERIESCODE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "CAMPAIGNJOBKEY",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "CLIENTMEDIAKEY",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "FILE_ID",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "TOTALCOST",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "TOTALROLLOUTCOST",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCECODESYSTEMID",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "APPEALSYSTEMID",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "DONORTYPE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "PANELDESCRIPTION",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "LISTCATEGORY",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "LISTSUBCATEGORY",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "LIST_CPM",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "PKGCPM_ROLLOUT",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "PKGCPM_ACTUAL",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "TOTALCPM_ACTUAL",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "TOTALCPM_ROLLOUT",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "TOTAL_COST",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "RESTRICTED_FLG",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "ACTIVITY",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "CAMPAIGN",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "INITIATIVE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "EFFORT",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "PROFILE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCE_DESCR",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "CONTROL_TEST_FLG",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "AUDIENCE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "CAMPAIGNTYPECODE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "DATEMAILED",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEID",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "ADDITIONALINFORMATION",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "ACQUISITIONLISTID",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "MAILACTUALQUANTITY",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "ESTIMATEDRETURNQUANTITY",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "ESTIMATEDREVENUE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "FULFILLMENTBUDGETEDCOST",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "FULFILLMENTACTUALCOST",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCETYPECODE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCETYPEDESC",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEWAVECODE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEWAVEDESC",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "FUNDCODE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "FUNDDESC",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "DROPID",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "CHANNELCODE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "PACKAGEINFO",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "VENDORMAILHOUSECODE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "VENDORMAILHOUSEDESC",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "ACTUALLABORCOSTPERTHOUSAND",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "ACTUALOTHERCOSTPERTHOUSAND",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "DROPTOTALQTY",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "TESTTYPECODE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "TESTTYPEDESC",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "BUDGETAMOUNT",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCSTRING01",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCSTRING02",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCSTRING03",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCSTRING04",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCSTRING05",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCSTRING06",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCSTRING07",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCSTRING08",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCSTRING09",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCSTRING10",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCTEXT01",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCTEXT02",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCTEXT03",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCTEXT04",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCTEXT05",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCTEXT06",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCTEXT07",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCTEXT08",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCTEXT09",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SOURCEMISCTEXT10",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "FYMO",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "FYQTR",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "NUMBERSENT",
+				"type": "VARCHAR"
+			}
+		],
+		"typeProperties": {
+			"schema": "PUBLIC",
+			"table": "FACTSOURCE"
+		}
+	}
+}
