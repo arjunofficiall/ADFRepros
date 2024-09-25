@@ -5,8 +5,11 @@
 		"annotations": [],
 		"type": "AzureBlobStorage",
 		"typeProperties": {
-			"connectionString": "DefaultEndpointsProtocol=https;AccountName=airflow911;EndpointSuffix=core.windows.net;",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQENEQjRCM0VBLTQwMDgtNDlDQS1BRDZGLTM0MTJCNTc1Q0NBQl9kYjNkNGZjYS02ODA2LTRjOWEtOTFmZS1mN2RlMWJjYjM0MjEiDQp9"
+			"sasUri": "https://airflow911.blob.core.windows.net/?sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupyx&se=2025-09-26T03:51:14Z&st=2024-09-25T19:51:14Z&spr=https,http&sig=CT31seoyuzVQ9GOgkD9B6aY0TftzXdjrAc4QTNtHUzI%3D?sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupyx&se=2025-09-26T03:51:14Z&st=2024-09-25T19:51:14Z&spr=https,http&sig=CT31seoyuzVQ9GOgkD9B6aY0TftzXdjrAc4QTNtHUzI%3D"
+		},
+		"connectVia": {
+			"referenceName": "snowflakeAzureIRautoresolve",
+			"type": "IntegrationRuntimeReference"
 		}
 	}
 }
