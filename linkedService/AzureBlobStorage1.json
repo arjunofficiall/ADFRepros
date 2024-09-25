@@ -5,7 +5,8 @@
 		"annotations": [],
 		"type": "AzureBlobStorage",
 		"typeProperties": {
-			"sasUri": "https://airflow911.blob.core.windows.net/?sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupyx&se=2025-09-26T03:51:14Z&st=2024-09-25T19:51:14Z&spr=https,http&sig=CT31seoyuzVQ9GOgkD9B6aY0TftzXdjrAc4QTNtHUzI%3D?sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupyx&se=2025-09-26T03:51:14Z&st=2024-09-25T19:51:14Z&spr=https,http&sig=CT31seoyuzVQ9GOgkD9B6aY0TftzXdjrAc4QTNtHUzI%3D"
+			"sasUri": "https://airflow911.blob.core.windows.net",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQENEQjRCM0VBLTQwMDgtNDlDQS1BRDZGLTM0MTJCNTc1Q0NBQl8xNjUyNGFkNi1jZGZjLTRiYjAtOTQ4NC1lZjM1NjkwODIwOTMiDQp9"
 		},
 		"connectVia": {
 			"referenceName": "snowflakeAzureIRautoresolve",
