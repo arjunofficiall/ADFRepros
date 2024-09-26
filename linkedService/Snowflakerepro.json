@@ -3,7 +3,7 @@
 	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
-		"type": "SnowflakeV2",
+		"type": "Snowflake",
 		"typeProperties": {
 			"authenticationType": "Basic",
 			"accountIdentifier": "bt73851.central-india.azure",
