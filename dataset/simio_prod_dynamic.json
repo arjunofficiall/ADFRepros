@@ -2,15 +2,8 @@
 	"name": "simio_prod_dynamic",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "Snowflake Simio Prod Dynamic",
-			"type": "LinkedServiceReference",
-			"parameters": {
-				"Environment": "@pipeline().globalParameters.environment",
-				"DatabaseName": {
-					"value": "@dataset().DatabaseName",
-					"type": "Expression"
-				}
-			}
+			"referenceName": "Snowflakerepro",
+			"type": "LinkedServiceReference"
 		},
 		"parameters": {
 			"Environment": {

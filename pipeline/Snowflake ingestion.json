@@ -28,12 +28,9 @@
 						}
 					},
 					"sink": {
-						"type": "SnowflakeV2Sink",
+						"type": "SnowflakeSink",
 						"importSettings": {
-							"type": "SnowflakeImportCopyCommand",
-							"additionalCopyOptions": {
-								"ON_ERROR": "CONTINUE"
-							}
+							"type": "SnowflakeImportCopyCommand"
 						}
 					},
 					"enableStaging": true,
@@ -72,8 +69,15 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "SnowflakeTable1",
-						"type": "DatasetReference"
+						"referenceName": "simio_prod_dynamic",
+						"type": "DatasetReference",
+						"parameters": {
+							"Environment": "Production",
+							"SchemaName": "PUBLIC",
+							"TableName": "FACTSOURCE",
+							"Role": "ACCOUNTADMIN",
+							"DatabaseName": "SIMIO_PROD"
+						}
 					}
 				]
 			}
