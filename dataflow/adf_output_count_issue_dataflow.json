@@ -1,0 +1,144 @@
+{
+	"name": "adf_output_count_issue_dataflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"linkedService": {
+						"referenceName": "BrandBlobStorage",
+						"type": "LinkedServiceReference"
+					},
+					"name": "source1"
+				},
+				{
+					"linkedService": {
+						"referenceName": "BrandBlobStorage",
+						"type": "LinkedServiceReference"
+					},
+					"name": "source2"
+				}
+			],
+			"sinks": [
+				{
+					"linkedService": {
+						"referenceName": "BrandBlobStorage",
+						"type": "LinkedServiceReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"linkedService": {
+						"referenceName": "BrandBlobStorage",
+						"type": "LinkedServiceReference"
+					},
+					"name": "sink2"
+				}
+			],
+			"transformations": [
+				{
+					"name": "externalCall1",
+					"linkedService": {
+						"referenceName": "dummyjson",
+						"type": "LinkedServiceReference"
+					}
+				},
+				{
+					"name": "externalCall2",
+					"linkedService": {
+						"referenceName": "dummyjson",
+						"type": "LinkedServiceReference"
+					}
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          TCIN as integer",
+				"     ),",
+				"     useSchema: false,",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'delimited',",
+				"     fileSystem: 'pipelines',",
+				"     folderPath: 'adf_issue/in',",
+				"     fileName: 'input.csv',",
+				"     columnDelimiter: ',',",
+				"     escapeChar: '\\\\',",
+				"     quoteChar: '\\\"',",
+				"     columnNamesAsHeader: true,",
+				"     partitionBy('roundRobin', 2)) ~> source1",
+				"source(useSchema: false,",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'delimited',",
+				"     fileSystem: 'pipelines',",
+				"     folderPath: 'adf_issue/in',",
+				"     fileName: 'input.csv',",
+				"     columnDelimiter: ',',",
+				"     escapeChar: '\\\\',",
+				"     quoteChar: '\\\"',",
+				"     columnNamesAsHeader: true,",
+				"     partitionBy('hash', 1)) ~> source2",
+				"source1 call(output(",
+				"          headers as [string,string],",
+				"          status as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     format: 'rest',",
+				"     store: 'restservice',",
+				"     timeout: 30,",
+				"     requestInterval: 0,",
+				"     httpMethod: 'GET',",
+				"     entity: 'products/1',",
+				"     headerColumnName: 'headers',",
+				"     bodyColumnName: 'body',",
+				"     statusColumnName: 'status',",
+				"     addResponseCode: true,",
+				"     requestFormat: ['type' -> 'json'],",
+				"     responseFormat: ['type' -> 'json', 'documentForm' -> 'documentPerLine']) ~> externalCall1",
+				"source2 call(output(",
+				"          headers as [string,string],",
+				"          status as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     format: 'rest',",
+				"     store: 'restservice',",
+				"     timeout: 30,",
+				"     requestInterval: 0,",
+				"     httpMethod: 'GET',",
+				"     entity: 'products/1',",
+				"     headerColumnName: 'headers',",
+				"     bodyColumnName: 'body',",
+				"     statusColumnName: 'status',",
+				"     addResponseCode: true,",
+				"     requestFormat: ['type' -> 'json'],",
+				"     responseFormat: ['type' -> 'json', 'documentForm' -> 'documentPerLine']) ~> externalCall2",
+				"externalCall1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'delimited',",
+				"     fileSystem: 'pipelines',",
+				"     folderPath: 'adf_issue/out/multiple_partitions',",
+				"     truncate: true,",
+				"     columnDelimiter: ',',",
+				"     escapeChar: '\\\\',",
+				"     quoteChar: '\\\"',",
+				"     columnNamesAsHeader: true,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1",
+				"externalCall2 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'delimited',",
+				"     fileSystem: 'pipelines',",
+				"     folderPath: 'adf_issue/out/one_partition',",
+				"     columnDelimiter: ',',",
+				"     escapeChar: '\\\\',",
+				"     quoteChar: '\\\"',",
+				"     columnNamesAsHeader: true,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink2"
+			]
+		}
+	}
+}

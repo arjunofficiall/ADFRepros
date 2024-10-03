@@ -1,0 +1,12 @@
+{
+	"name": "dummyjson",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://dummyjson.com",
+			"authenticationType": "Anonymous"
+		},
+		"annotations": []
+	}
+}
