@@ -1,0 +1,186 @@
+{
+	"name": "PL_MASTER_TEXT_FULL_LOAD",
+	"properties": {
+		"activities": [
+			{
+				"name": "For Each Extractor",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.Extractor_Name",
+						"type": "Expression"
+					},
+					"batchCount": 3,
+					"activities": [
+						{
+							"name": "DF_SAP_FULL_LOAD",
+							"type": "ExecuteDataFlow",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 1,
+								"retryIntervalInSeconds": 60,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"dataflow": {
+									"referenceName": "DF_SAP_FULL_LOAD",
+									"type": "DataFlowReference",
+									"datasetParameters": {
+										"SAP": {
+											"Extractor_Name": {
+												"value": "@item().Extractor",
+												"type": "Expression"
+											}
+										},
+										"STAGING": {
+											"Folder_Name": {
+												"value": "@item().Extractor",
+												"type": "Expression"
+											}
+										}
+									}
+								},
+								"staging": {
+									"linkedService": {
+										"referenceName": "LS_STAGE_STG",
+										"type": "LinkedServiceReference"
+									},
+									"folderPath": "temp/temporary_files"
+								},
+								"compute": {
+									"coreCount": 16,
+									"computeType": "General"
+								},
+								"traceLevel": "Fine"
+							}
+						},
+						{
+							"name": "COPY_DATA_TO_LH",
+							"type": "Copy",
+							"dependsOn": [
+								{
+									"activity": "DF_SAP_FULL_LOAD",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "AvroSource",
+									"storeSettings": {
+										"type": "AzureBlobStorageReadSettings",
+										"recursive": true,
+										"wildcardFolderPath": {
+											"value": "@item().Extractor",
+											"type": "Expression"
+										},
+										"wildcardFileName": "*.avro",
+										"enablePartitionDiscovery": false
+									}
+								},
+								"sink": {
+									"type": "LakehouseTableSink",
+									"tableActionOption": "OverwriteSchema",
+									"partitionOption": "None"
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": false,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "DS_STG_FULL_LOAD",
+									"type": "DatasetReference",
+									"parameters": {
+										"Folder_Name": {
+											"value": "@item().Extractor",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DS_LAKEHOUSE_TABLE",
+									"type": "DatasetReference",
+									"parameters": {
+										"TableName": "@item().Extractor"
+									}
+								}
+							]
+						},
+						{
+							"name": "DELETE_TEMP_FILES",
+							"type": "Delete",
+							"dependsOn": [
+								{
+									"activity": "COPY_DATA_TO_LH",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"dataset": {
+									"referenceName": "DS_STG_FULL_LOAD",
+									"type": "DatasetReference",
+									"parameters": {
+										"Folder_Name": {
+											"value": "@item().Extractor",
+											"type": "Expression"
+										}
+									}
+								},
+								"enableLogging": false,
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								}
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"Extractor_Name": {
+				"type": "array"
+			}
+		},
+		"folder": {
+			"name": "Master Data/TEXT"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-08-13T10:40:54Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

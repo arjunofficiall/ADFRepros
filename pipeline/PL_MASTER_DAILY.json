@@ -1,0 +1,64 @@
+{
+	"name": "PL_MASTER_DAILY",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute TEXT",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "PL_INIT_TEXT",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"Source_Type": "Text",
+						"Load_Type": "FULL",
+						"Is_Active": "1",
+						"Frequency": "Daily"
+					}
+				}
+			},
+			{
+				"name": "Execute ATTR",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Execute TEXT",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "PL_INIT_ATTR",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"Source_Type": "ATTR",
+						"Load_Type": "FULL",
+						"Is_Active": "1",
+						"Frequency": "Daily"
+					}
+				}
+			}
+		],
+		"folder": {
+			"name": "Master Data"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-08-09T07:49:42Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

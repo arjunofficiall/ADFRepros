@@ -1,0 +1,31 @@
+{
+	"name": "DS_STG_FULL_LOAD",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_STAGE_STG",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Folder_Name": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "Staging Dataset"
+		},
+		"annotations": [],
+		"type": "Avro",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": {
+					"value": "@dataset().Folder_Name",
+					"type": "Expression"
+				},
+				"container": "staging"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

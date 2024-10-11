@@ -1,0 +1,364 @@
+{
+	"name": "PL_MASTER_ATTR_FULL_LOAD",
+	"properties": {
+		"activities": [
+			{
+				"name": "For Each Extractor",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.Extractor_Name",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "CHECK_SOURCE",
+							"type": "IfCondition",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"expression": {
+									"value": "@equals(item().Extractor,'0MAT_SALES_ATTR')",
+									"type": "Expression"
+								},
+								"ifFalseActivities": [
+									{
+										"name": "DF_SAP_FULL_LOAD",
+										"type": "ExecuteDataFlow",
+										"dependsOn": [],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 1,
+											"retryIntervalInSeconds": 60,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"dataflow": {
+												"referenceName": "DF_SAP_FULL_LOAD",
+												"type": "DataFlowReference",
+												"datasetParameters": {
+													"SAP": {
+														"Extractor_Name": {
+															"value": "@item().Extractor",
+															"type": "Expression"
+														}
+													},
+													"STAGING": {
+														"Folder_Name": {
+															"value": "@item().Extractor",
+															"type": "Expression"
+														}
+													}
+												}
+											},
+											"staging": {
+												"linkedService": {
+													"referenceName": "LS_STAGE_STG",
+													"type": "LinkedServiceReference"
+												},
+												"folderPath": "temp/temorary_files"
+											},
+											"compute": {
+												"coreCount": 8,
+												"computeType": "General"
+											},
+											"traceLevel": "None",
+											"cacheSinks": {
+												"firstRowOnly": true
+											}
+										}
+									},
+									{
+										"name": "COPY_DATA_TO_LH",
+										"type": "Copy",
+										"dependsOn": [
+											{
+												"activity": "DF_SAP_FULL_LOAD",
+												"dependencyConditions": [
+													"Succeeded"
+												]
+											}
+										],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"source": {
+												"type": "AvroSource",
+												"storeSettings": {
+													"type": "AzureBlobStorageReadSettings",
+													"recursive": true,
+													"wildcardFolderPath": {
+														"value": "@item().Extractor",
+														"type": "Expression"
+													},
+													"wildcardFileName": "*.avro",
+													"enablePartitionDiscovery": false
+												}
+											},
+											"sink": {
+												"type": "LakehouseTableSink",
+												"tableActionOption": "OverwriteSchema",
+												"partitionOption": "None"
+											},
+											"enableStaging": false,
+											"translator": {
+												"type": "TabularTranslator",
+												"typeConversion": true,
+												"typeConversionSettings": {
+													"allowDataTruncation": false,
+													"treatBooleanAsNumber": false
+												}
+											}
+										},
+										"inputs": [
+											{
+												"referenceName": "DS_STG_FULL_LOAD",
+												"type": "DatasetReference",
+												"parameters": {
+													"Folder_Name": {
+														"value": "@item().Extractor",
+														"type": "Expression"
+													}
+												}
+											}
+										],
+										"outputs": [
+											{
+												"referenceName": "DS_LAKEHOUSE_TABLE",
+												"type": "DatasetReference",
+												"parameters": {
+													"TableName": {
+														"value": "@item().Extractor",
+														"type": "Expression"
+													}
+												}
+											}
+										]
+									},
+									{
+										"name": "DELETE_TEMP_FILES",
+										"type": "Delete",
+										"dependsOn": [
+											{
+												"activity": "COPY_DATA_TO_LH",
+												"dependencyConditions": [
+													"Completed"
+												]
+											}
+										],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"dataset": {
+												"referenceName": "DS_STG_FULL_LOAD",
+												"type": "DatasetReference",
+												"parameters": {
+													"Folder_Name": {
+														"value": "@item().Extractor",
+														"type": "Expression"
+													}
+												}
+											},
+											"enableLogging": false,
+											"storeSettings": {
+												"type": "AzureBlobStorageReadSettings",
+												"recursive": true,
+												"enablePartitionDiscovery": false
+											}
+										}
+									}
+								],
+								"ifTrueActivities": [
+									{
+										"name": "COPY_0MAT_SALES_ATTR_TO_LH",
+										"type": "Copy",
+										"dependsOn": [
+											{
+												"activity": "DF_SAP_0MAT_SALES_ATTR_FULL_PROD",
+												"dependencyConditions": [
+													"Succeeded"
+												]
+											}
+										],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"source": {
+												"type": "AvroSource",
+												"storeSettings": {
+													"type": "AzureBlobStorageReadSettings",
+													"recursive": true,
+													"wildcardFolderPath": {
+														"value": "@item().Extractor",
+														"type": "Expression"
+													},
+													"wildcardFileName": "*.avro",
+													"enablePartitionDiscovery": false
+												}
+											},
+											"sink": {
+												"type": "LakehouseTableSink",
+												"tableActionOption": "OverwriteSchema",
+												"partitionOption": "None"
+											},
+											"enableStaging": false,
+											"translator": {
+												"type": "TabularTranslator",
+												"typeConversion": true,
+												"typeConversionSettings": {
+													"allowDataTruncation": false,
+													"treatBooleanAsNumber": false
+												}
+											}
+										},
+										"inputs": [
+											{
+												"referenceName": "DS_STG_FULL_LOAD",
+												"type": "DatasetReference",
+												"parameters": {
+													"Folder_Name": {
+														"value": "@item().Extractor",
+														"type": "Expression"
+													}
+												}
+											}
+										],
+										"outputs": [
+											{
+												"referenceName": "DS_LAKEHOUSE_TABLE",
+												"type": "DatasetReference",
+												"parameters": {
+													"TableName": {
+														"value": "@item().Extractor",
+														"type": "Expression"
+													}
+												}
+											}
+										]
+									},
+									{
+										"name": "DELETE_TEMP_FILE",
+										"type": "Delete",
+										"dependsOn": [
+											{
+												"activity": "COPY_0MAT_SALES_ATTR_TO_LH",
+												"dependencyConditions": [
+													"Completed"
+												]
+											}
+										],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"dataset": {
+												"referenceName": "DS_STG_FULL_LOAD",
+												"type": "DatasetReference",
+												"parameters": {
+													"Folder_Name": {
+														"value": "@item().Extractor",
+														"type": "Expression"
+													}
+												}
+											},
+											"enableLogging": false,
+											"storeSettings": {
+												"type": "AzureBlobStorageReadSettings",
+												"recursive": true,
+												"enablePartitionDiscovery": false
+											}
+										}
+									},
+									{
+										"name": "DF_SAP_0MAT_SALES_ATTR_FULL_PROD",
+										"type": "ExecuteDataFlow",
+										"dependsOn": [],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 1,
+											"retryIntervalInSeconds": 60,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"dataflow": {
+												"referenceName": "DF_SAP_0MAT_SALES_ATTR_FULL_PROD",
+												"type": "DataFlowReference",
+												"datasetParameters": {
+													"SAP": {
+														"Extractor_Name": {
+															"value": "@item().Extractor",
+															"type": "Expression"
+														}
+													},
+													"STAGING": {
+														"Folder_Name": {
+															"value": "@item().Extractor",
+															"type": "Expression"
+														}
+													}
+												}
+											},
+											"staging": {
+												"linkedService": {
+													"referenceName": "LS_STAGE_STG",
+													"type": "LinkedServiceReference"
+												},
+												"folderPath": "temp/temorary_files"
+											},
+											"compute": {
+												"coreCount": 8,
+												"computeType": "General"
+											},
+											"traceLevel": "Fine"
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"Extractor_Name": {
+				"type": "array"
+			}
+		},
+		"folder": {
+			"name": "Master Data/ATTR"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-09-08T23:54:35Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
