@@ -1,0 +1,12 @@
+{
+	"name": "SnowflakeTablejay",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "uat_snowflake_table_dynamic",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SnowflakeV2Table",
+		"schema": []
+	}
+}
