@@ -46,10 +46,6 @@
 									}
 								},
 								"staging": {
-									"linkedService": {
-										"referenceName": "LS_STAGE_STG",
-										"type": "LinkedServiceReference"
-									},
 									"folderPath": "temp/temporary_files"
 								},
 								"compute": {

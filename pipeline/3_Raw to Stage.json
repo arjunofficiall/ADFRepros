@@ -506,28 +506,7 @@
 									}
 								},
 								"enableStaging": true,
-								"stagingSettings": {
-									"linkedServiceName": {
-										"referenceName": "engineeringstorage",
-										"type": "LinkedServiceReference"
-									},
-									"path": "stage/ACTA/FileIngestionStage"
-								},
 								"enableSkipIncompatibleRow": true,
-								"logSettings": {
-									"enableCopyActivityLog": true,
-									"copyActivityLogSettings": {
-										"logLevel": "Warning",
-										"enableReliableLogging": false
-									},
-									"logLocationSettings": {
-										"linkedServiceName": {
-											"referenceName": "engineeringstorage",
-											"type": "LinkedServiceReference"
-										},
-										"path": "stage/ACTA/FileIngestionLogs"
-									}
-								},
 								"translator": {
 									"value": "@json(variables('AppendedJSONMapping'))",
 									"type": "Expression"
@@ -781,28 +760,7 @@
 									}
 								},
 								"enableStaging": true,
-								"stagingSettings": {
-									"linkedServiceName": {
-										"referenceName": "engineeringstorage",
-										"type": "LinkedServiceReference"
-									},
-									"path": "stage/ACTA/staging"
-								},
 								"enableSkipIncompatibleRow": true,
-								"logSettings": {
-									"enableCopyActivityLog": true,
-									"copyActivityLogSettings": {
-										"logLevel": "Warning",
-										"enableReliableLogging": false
-									},
-									"logLocationSettings": {
-										"linkedServiceName": {
-											"referenceName": "engineeringstorage",
-											"type": "LinkedServiceReference"
-										},
-										"path": "stage/ACTA/errors"
-									}
-								},
 								"translator": {
 									"value": "@json(variables('AppendedJSONMapping'))",
 									"type": "Expression"

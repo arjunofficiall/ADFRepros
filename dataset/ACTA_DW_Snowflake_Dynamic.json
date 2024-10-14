@@ -1,10 +1,6 @@
 {
 	"name": "ACTA_DW_Snowflake_Dynamic",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "ACTA_DW Database",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "SnowflakeTable",
 		"schema": [

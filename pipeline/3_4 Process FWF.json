@@ -14,15 +14,6 @@
 					"secureInput": false
 				},
 				"userProperties": [],
-				"linkedServiceName": {
-					"referenceName": "uat_snowflake_table_dynamic",
-					"type": "LinkedServiceReference",
-					"parameters": {
-						"Warehouse": "COMPUTE_WH",
-						"Database": "ACTA_DW",
-						"Role": "DATA_ADMIN_ROLE"
-					}
-				},
 				"typeProperties": {
 					"scripts": [
 						{
@@ -74,13 +65,6 @@
 						}
 					},
 					"enableStaging": true,
-					"stagingSettings": {
-						"linkedServiceName": {
-							"referenceName": "engineeringstorage",
-							"type": "LinkedServiceReference"
-						},
-						"path": "stage/ACTA/staging"
-					},
 					"enableSkipIncompatibleRow": true
 				},
 				"inputs": [

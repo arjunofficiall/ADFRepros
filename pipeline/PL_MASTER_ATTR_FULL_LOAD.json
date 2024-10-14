@@ -57,10 +57,6 @@
 												}
 											},
 											"staging": {
-												"linkedService": {
-													"referenceName": "LS_STAGE_STG",
-													"type": "LinkedServiceReference"
-												},
 												"folderPath": "temp/temorary_files"
 											},
 											"compute": {
@@ -329,10 +325,6 @@
 												}
 											},
 											"staging": {
-												"linkedService": {
-													"referenceName": "LS_STAGE_STG",
-													"type": "LinkedServiceReference"
-												},
 												"folderPath": "temp/temorary_files"
 											},
 											"compute": {

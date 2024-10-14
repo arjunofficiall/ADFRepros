@@ -1,10 +1,6 @@
 {
 	"name": "DS_LAKEHOUSE_TABLE",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "LS_FABRIC_LH",
-			"type": "LinkedServiceReference"
-		},
 		"parameters": {
 			"TableName": {
 				"type": "string"

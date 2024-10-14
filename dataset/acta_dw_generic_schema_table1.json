@@ -1,10 +1,6 @@
 {
 	"name": "acta_dw_generic_schema_table1",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "ACTA_DW Database",
-			"type": "LinkedServiceReference"
-		},
 		"parameters": {
 			"SCHEMA_NAME": {
 				"type": "string"

@@ -1,10 +1,6 @@
 {
 	"name": "DS_FABRIC_WH",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "LS_FABRIC_WH",
-			"type": "LinkedServiceReference"
-		},
 		"folder": {
 			"name": "Fabric Dataset"
 		},

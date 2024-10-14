@@ -1,10 +1,6 @@
 {
 	"name": "DS_STG_FULL_LOAD",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "LS_STAGE_STG",
-			"type": "LinkedServiceReference"
-		},
 		"parameters": {
 			"Folder_Name": {
 				"type": "string"

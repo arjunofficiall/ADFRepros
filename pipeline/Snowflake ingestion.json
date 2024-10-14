@@ -42,20 +42,6 @@
 						"path": "skippedrows"
 					},
 					"enableSkipIncompatibleRow": true,
-					"logSettings": {
-						"enableCopyActivityLog": true,
-						"copyActivityLogSettings": {
-							"logLevel": "Warning",
-							"enableReliableLogging": false
-						},
-						"logLocationSettings": {
-							"linkedServiceName": {
-								"referenceName": "faultskippedrows",
-								"type": "LinkedServiceReference"
-							},
-							"path": "skippedrows"
-						}
-					},
 					"translator": {
 						"value": "@json(variables('Mapping'))",
 						"type": "Expression"

@@ -1,10 +1,6 @@
 {
 	"name": "acta_dw_sftp_dynamic_delimiter",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "simio_file_share",
-			"type": "LinkedServiceReference"
-		},
 		"parameters": {
 			"DirectoryName": {
 				"type": "string"

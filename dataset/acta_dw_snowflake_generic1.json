@@ -1,10 +1,6 @@
 {
 	"name": "acta_dw_snowflake_generic1",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "ACTA_DW Database",
-			"type": "LinkedServiceReference"
-		},
 		"folder": {
 			"name": "snowflake/Prod Instance/acta_dw"
 		},

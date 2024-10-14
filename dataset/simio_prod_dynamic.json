@@ -1,10 +1,6 @@
 {
 	"name": "simio_prod_dynamic",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "Snowflakerepro",
-			"type": "LinkedServiceReference"
-		},
 		"parameters": {
 			"Environment": {
 				"type": "string",

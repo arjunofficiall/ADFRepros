@@ -104,13 +104,6 @@
 									}
 								},
 								"enableStaging": true,
-								"stagingSettings": {
-									"linkedServiceName": {
-										"referenceName": "engineeringstorage",
-										"type": "LinkedServiceReference"
-									},
-									"path": "simio-automation/ACTA/FileIngestionLogs/stage"
-								},
 								"translator": {
 									"type": "TabularTranslator",
 									"mappings": [

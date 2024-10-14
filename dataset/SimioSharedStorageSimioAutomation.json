@@ -1,10 +1,6 @@
 {
 	"name": "SimioSharedStorageSimioAutomation",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "engineeringstorage",
-			"type": "LinkedServiceReference"
-		},
 		"parameters": {
 			"Directory": {
 				"type": "string"
