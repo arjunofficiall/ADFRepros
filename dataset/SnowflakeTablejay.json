@@ -1,6 +1,10 @@
 {
 	"name": "SnowflakeTablejay",
 	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Snowflake1",
+			"type": "LinkedServiceReference"
+		},
 		"annotations": [],
 		"type": "SnowflakeV2Table",
 		"schema": []

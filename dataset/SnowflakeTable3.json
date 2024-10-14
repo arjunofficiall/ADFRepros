@@ -1,0 +1,33 @@
+{
+	"name": "SnowflakeTable3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Snowflake1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SnowflakeV2Table",
+		"schema": [
+			{
+				"name": "GRANTEE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "ROLE_NAME",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "ROLE_OWNER",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "IS_GRANTABLE",
+				"type": "VARCHAR"
+			}
+		],
+		"typeProperties": {
+			"schema": "INFORMATION_SCHEMA",
+			"table": "APPLICABLE_ROLES"
+		}
+	}
+}
