@@ -15,10 +15,6 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"dataflow": {
-						"referenceName": "dataflowjay",
-						"type": "DataFlowReference"
-					},
 					"integrationRuntime": {
 						"referenceName": "SNFLAKEIR",
 						"type": "IntegrationRuntimeReference"
