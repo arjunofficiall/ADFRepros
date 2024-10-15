@@ -9,11 +9,15 @@
 						"referenceName": "AzureDataLakeStorage1",
 						"type": "LinkedServiceReference"
 					},
-					"name": "source1",
+					"name": "SQL",
 					"description": "Import data from BrandBlobStorage"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"name": "sink1"
+				}
+			],
 			"transformations": [],
 			"scriptLines": [
 				"source(useSchema: false,",
@@ -24,7 +28,11 @@
 				"     columnDelimiter: ',',",
 				"     escapeChar: '\\\\',",
 				"     quoteChar: '\\\"',",
-				"     columnNamesAsHeader: false) ~> source1"
+				"     columnNamesAsHeader: false) ~> SQL",
+				"SQL sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
