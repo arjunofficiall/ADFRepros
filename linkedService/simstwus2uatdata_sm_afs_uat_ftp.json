@@ -8,10 +8,6 @@
 			"connectionString": "DefaultEndpointsProtocol=https;AccountName=simstwus2uatdata;EndpointSuffix=core.windows.net;",
 			"fileShare": "sm-afs-uat-ftp",
 			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJlNzZkMmY2My1jODYzLTQ2MDMtYTQ0My1hMTgwN2VjMjBmNTkiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
-		},
-		"connectVia": {
-			"referenceName": "APTIntegrationRuntime",
-			"type": "IntegrationRuntimeReference"
 		}
 	}
 }

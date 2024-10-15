@@ -19,9 +19,9 @@
 						"referenceName": "adf_output_count_issue_dataflow",
 						"type": "DataFlowReference"
 					},
-					"integrationRuntime": {
-						"referenceName": "BrandIntegrationRuntime",
-						"type": "IntegrationRuntimeReference"
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
 					},
 					"traceLevel": "Fine"
 				}
