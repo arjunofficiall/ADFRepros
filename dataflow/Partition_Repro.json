@@ -33,7 +33,7 @@
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     partitionBy('roundRobin', 4)) ~> SQL",
 				"SQL sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
+				"     validateSchema: true,",
 				"     deletable:false,",
 				"     insertable:true,",
 				"     updateable:false,",
@@ -41,7 +41,8 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     outputAssertFailedRows: true) ~> sink1"
 			]
 		}
 	}
