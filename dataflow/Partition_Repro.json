@@ -28,7 +28,7 @@
 				"     validateSchema: false,",
 				"     format: 'table',",
 				"     store: 'sqlserver',",
-				"     schemaName: '',",
+				"     schemaName: 'INFORMATION_SCHEMA',",
 				"     tableName: '',",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     partitionBy('roundRobin', 4)) ~> SQL",
