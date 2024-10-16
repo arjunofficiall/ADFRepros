@@ -606,9 +606,9 @@
 				"typeProperties": {
 					"sources": [
 						{
-							"dataset": {
-								"referenceName": "AzureSqlTablesoruce",
-								"type": "DatasetReference"
+							"linkedService": {
+								"referenceName": "AzureSqlDatabase1",
+								"type": "LinkedServiceReference"
 							},
 							"name": "source2"
 						}
@@ -622,22 +622,15 @@
 							"name": "sink2"
 						}
 					],
-					"transformations": [
-						{
-							"name": "externalCall2"
-						}
-					],
+					"transformations": [],
 					"scriptLines": [
-						"source(output(",
-						"          CONSTRAINT_CATALOG as string,",
-						"          CONSTRAINT_SCHEMA as string,",
-						"          CONSTRAINT_NAME as string,",
-						"          CHECK_CLAUSE as string",
-						"     ),",
-						"     allowSchemaDrift: true,",
+						"source(allowSchemaDrift: true,",
 						"     validateSchema: false,",
-						"     isolationLevel: 'READ_UNCOMMITTED',",
 						"     format: 'table',",
+						"     store: 'sqlserver',",
+						"     schemaName: 'INFORMATION_SCHEMA',",
+						"     tableName: 'DOMAINS',",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
 						"     partitionBy('roundRobin', 2),",
 						"     fileSystem: 'pipelines',",
 						"     folderPath: 'adf_issue/in',",
@@ -646,17 +639,17 @@
 						"     escapeChar: '\\\\',",
 						"     quoteChar: '\\\"',",
 						"     columnNamesAsHeader: true) ~> source2",
-						"source2 call(allowSchemaDrift: true) ~> externalCall2",
-						"externalCall2 sink(allowSchemaDrift: true,",
+						"source2 sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     deletable:false,",
 						"     insertable:true,",
 						"     updateable:false,",
 						"     upsertable:false,",
 						"     format: 'table',",
-						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true,",
+						"     dateFormat:'MM/dd/yyyy',",
+						"     timestampFormat:'MM/dd/yyyy',",
 						"     errorHandlingOption: 'stopOnFirstError',",
+						"     partitionBy('roundRobin', 2),",
 						"     fileSystem: 'pipelines',",
 						"     folderPath: 'adf_issue/out/one_partition',",
 						"     columnDelimiter: ',',",
@@ -667,7 +660,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/AzureSqlTablesoruce')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]",
 				"[concat(variables('factoryId'), '/datasets/AzureSqlTablesink')]"
 			]
 		},
