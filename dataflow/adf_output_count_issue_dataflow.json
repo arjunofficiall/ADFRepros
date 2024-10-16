@@ -5,9 +5,9 @@
 		"typeProperties": {
 			"sources": [
 				{
-					"dataset": {
-						"referenceName": "AzureSqlTablesoruce",
-						"type": "DatasetReference"
+					"linkedService": {
+						"referenceName": "AzureSqlDatabase1",
+						"type": "LinkedServiceReference"
 					},
 					"name": "source2"
 				}
@@ -23,16 +23,13 @@
 			],
 			"transformations": [],
 			"scriptLines": [
-				"source(output(",
-				"          CONSTRAINT_CATALOG as string,",
-				"          CONSTRAINT_SCHEMA as string,",
-				"          CONSTRAINT_NAME as string,",
-				"          CHECK_CLAUSE as string",
-				"     ),",
-				"     allowSchemaDrift: true,",
+				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table',",
+				"     store: 'sqlserver',",
+				"     schemaName: '',",
+				"     tableName: '',",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     partitionBy('roundRobin', 2),",
 				"     fileSystem: 'pipelines',",
 				"     folderPath: 'adf_issue/in',",
