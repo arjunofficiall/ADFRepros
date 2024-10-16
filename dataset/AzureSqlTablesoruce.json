@@ -1,0 +1,33 @@
+{
+	"name": "AzureSqlTablesoruce",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "CONSTRAINT_CATALOG",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CONSTRAINT_SCHEMA",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CONSTRAINT_NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CHECK_CLAUSE",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "INFORMATION_SCHEMA",
+			"table": "CHECK_CONSTRAINTS"
+		}
+	}
+}

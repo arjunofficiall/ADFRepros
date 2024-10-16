@@ -9,7 +9,7 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "AzureSqlTablesink",
+						"referenceName": "AzureSqlTablesoruce",
 						"type": "DatasetReference"
 					},
 					"name": "source2"
@@ -45,7 +45,13 @@
 				"     escapeChar: '\\\\',",
 				"     quoteChar: '\\\"',",
 				"     columnNamesAsHeader: true) ~> source1",
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          CONSTRAINT_CATALOG as string,",
+				"          CONSTRAINT_SCHEMA as string,",
+				"          CONSTRAINT_NAME as string,",
+				"          CHECK_CLAUSE as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table',",
