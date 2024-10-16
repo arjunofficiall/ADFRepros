@@ -31,7 +31,7 @@
 				"     schemaName: 'sys',",
 				"     tableName: 'all_columns',",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     partitionBy('roundRobin', 4)) ~> SQL",
+				"     partitionBy('roundRobin', 2)) ~> SQL",
 				"SQL sink(allowSchemaDrift: true,",
 				"     validateSchema: true,",
 				"     deletable:false,",
