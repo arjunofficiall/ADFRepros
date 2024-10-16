@@ -5,9 +5,6 @@
 		"typeProperties": {
 			"sources": [
 				{
-					"name": "source1"
-				},
-				{
 					"dataset": {
 						"referenceName": "AzureSqlTablesoruce",
 						"type": "DatasetReference"
@@ -16,9 +13,6 @@
 				}
 			],
 			"sinks": [
-				{
-					"name": "sink1"
-				},
 				{
 					"dataset": {
 						"referenceName": "AzureSqlTablesink",
@@ -29,26 +23,10 @@
 			],
 			"transformations": [
 				{
-					"name": "externalCall1"
-				},
-				{
 					"name": "externalCall2"
 				}
 			],
 			"scriptLines": [
-				"source(output(",
-				"          TCIN as integer",
-				"     ),",
-				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     partitionBy('roundRobin', 2),",
-				"     fileSystem: 'pipelines',",
-				"     folderPath: 'adf_issue/in',",
-				"     fileName: 'input.csv',",
-				"     columnDelimiter: ',',",
-				"     escapeChar: '\\\\',",
-				"     quoteChar: '\\\"',",
-				"     columnNamesAsHeader: true) ~> source1",
 				"source(output(",
 				"          CONSTRAINT_CATALOG as string,",
 				"          CONSTRAINT_SCHEMA as string,",
@@ -67,28 +45,7 @@
 				"     escapeChar: '\\\\',",
 				"     quoteChar: '\\\"',",
 				"     columnNamesAsHeader: true) ~> source2",
-				"source1 call(output(",
-				"          headers as [string,string],",
-				"          status as string",
-				"     ),",
-				"     allowSchemaDrift: true) ~> externalCall1",
-				"source2 call(output(",
-				"          headers as [string,string],",
-				"          status as string",
-				"     ),",
-				"     allowSchemaDrift: true) ~> externalCall2",
-				"externalCall1 sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     truncate: true,",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     format: 'delimited',",
-				"     fileSystem: 'pipelines',",
-				"     folderPath: 'adf_issue/out/multiple_partitions',",
-				"     columnDelimiter: ',',",
-				"     escapeChar: '\\\\',",
-				"     quoteChar: '\\\"',",
-				"     columnNamesAsHeader: true) ~> sink1",
+				"source2 call(allowSchemaDrift: true) ~> externalCall2",
 				"externalCall2 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",
