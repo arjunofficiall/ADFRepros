@@ -1,10 +1,6 @@
 {
 	"name": "simio_appdata_prod_ds1",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "simio_appdata_prod_db",
-			"type": "LinkedServiceReference"
-		},
 		"parameters": {
 			"TableName": {
 				"type": "string",
