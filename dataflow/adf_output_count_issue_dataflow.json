@@ -8,6 +8,10 @@
 					"name": "source1"
 				},
 				{
+					"dataset": {
+						"referenceName": "AzureSqlTablesink",
+						"type": "DatasetReference"
+					},
 					"name": "source2"
 				}
 			],
@@ -43,6 +47,8 @@
 				"     columnNamesAsHeader: true) ~> source1",
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table',",
 				"     partitionBy('hash', 1),",
 				"     fileSystem: 'pipelines',",
 				"     folderPath: 'adf_issue/in',",
