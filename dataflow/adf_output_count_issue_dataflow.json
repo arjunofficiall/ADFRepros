@@ -21,11 +21,7 @@
 					"name": "sink2"
 				}
 			],
-			"transformations": [
-				{
-					"name": "externalCall2"
-				}
-			],
+			"transformations": [],
 			"scriptLines": [
 				"source(output(",
 				"          CONSTRAINT_CATALOG as string,",
@@ -45,12 +41,7 @@
 				"     escapeChar: '\\\\',",
 				"     quoteChar: '\\\"',",
 				"     columnNamesAsHeader: true) ~> source2",
-				"source2 call(output(",
-				"          headers as [string,string],",
-				"          status as string",
-				"     ),",
-				"     allowSchemaDrift: true) ~> externalCall2",
-				"externalCall2 sink(allowSchemaDrift: true,",
+				"source2 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",
 				"     insertable:true,",
