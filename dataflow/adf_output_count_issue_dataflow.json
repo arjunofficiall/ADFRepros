@@ -47,8 +47,6 @@
 				"     format: 'table',",
 				"     dateFormat:'MM/dd/yyyy',",
 				"     timestampFormat:'MM/dd/yyyy',",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
 				"     errorHandlingOption: 'stopOnFirstError',",
 				"     partitionBy('roundRobin', 2),",
 				"     fileSystem: 'pipelines',",
