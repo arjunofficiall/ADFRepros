@@ -20,6 +20,10 @@
 					"name": "sink1"
 				},
 				{
+					"dataset": {
+						"referenceName": "AzureSqlTablesink",
+						"type": "DatasetReference"
+					},
 					"name": "sink2"
 				}
 			],
@@ -55,7 +59,7 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table',",
-				"     partitionBy('hash', 1),",
+				"     partitionBy('roundRobin', 2),",
 				"     fileSystem: 'pipelines',",
 				"     folderPath: 'adf_issue/in',",
 				"     fileName: 'input.csv',",
@@ -83,9 +87,14 @@
 				"     columnNamesAsHeader: true) ~> sink1",
 				"externalCall2 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     format: 'delimited',",
+				"     errorHandlingOption: 'stopOnFirstError',",
 				"     fileSystem: 'pipelines',",
 				"     folderPath: 'adf_issue/out/one_partition',",
 				"     columnDelimiter: ',',",
