@@ -1,0 +1,72 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "depdailyrepro"
+		},
+		"AzureSqlDBsink_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase2_password": {
+			"value": ""
+		},
+		"LS_SAP_CDC_password": {
+			"value": ""
+		},
+		"Snowflake1_password": {
+			"value": ""
+		},
+		"simstwus2uatdata_sm_afs_uat_ftp_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage1_sasUri": {
+			"value": ""
+		},
+		"AzureSqlDBsink_properties_typeProperties_server": {
+			"value": "sqlreproserver.database.windows.net"
+		},
+		"AzureSqlDBsink_properties_typeProperties_database": {
+			"value": "adworksDB"
+		},
+		"AzureSqlDBsink_properties_typeProperties_userName": {
+			"value": "sadmin"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "sqlreproserver.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "AdventureWorks2019 (1)"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "sadmin"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_server": {
+			"value": "sqlreproserver.database.windows.net"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_database": {
+			"value": "AdventureWorks2019 (1)"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"value": "sadmin"
+		},
+		"LS_SAP_CDC_properties_typeProperties_clientId": {
+			"value": "400"
+		},
+		"LS_SAP_CDC_properties_typeProperties_userName": {
+			"value": "Z_RPT_ECP"
+		},
+		"LS_SAP_CDC_properties_typeProperties_server": {
+			"value": "sapperp01.clearwater.ca"
+		},
+		"LS_SAP_CDC_properties_typeProperties_systemNumber": {
+			"value": "00"
+		},
+		"Snowflake1_properties_typeProperties_database": {
+			"value": "JAYREPRO"
+		}
+	}
+}
