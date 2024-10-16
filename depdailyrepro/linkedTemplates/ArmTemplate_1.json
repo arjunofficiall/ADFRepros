@@ -13,7 +13,7 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/adf_output_count_issue')]",
+			"name": "[concat(parameters('factoryName'), '/PartitionSQL Repro')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -32,12 +32,12 @@
 						"userProperties": [],
 						"typeProperties": {
 							"dataflow": {
-								"referenceName": "adf_output_count_issue_dataflow",
+								"referenceName": "Partition_Repro",
 								"type": "DataFlowReference",
 								"parameters": {},
 								"datasetParameters": {
-									"source2": {},
-									"sink2": {}
+									"SQL": {},
+									"sink1": {}
 								}
 							},
 							"staging": {},
@@ -52,8 +52,7 @@
 				"policy": {
 					"elapsedTimeMetric": {}
 				},
-				"annotations": [],
-				"lastPublishTime": "2024-08-28T14:25:13Z"
+				"annotations": []
 			},
 			"dependsOn": []
 		}

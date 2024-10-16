@@ -150,7 +150,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Data flow1",
+						"name": "Partition Repro SQL",
 						"type": "ExecuteDataFlow",
 						"dependsOn": [],
 						"policy": {
@@ -615,9 +615,9 @@
 					],
 					"sinks": [
 						{
-							"dataset": {
-								"referenceName": "AzureSqlTablesink",
-								"type": "DatasetReference"
+							"linkedService": {
+								"referenceName": "AzureSqlDBsink",
+								"type": "LinkedServiceReference"
 							},
 							"name": "sink2"
 						}
@@ -660,35 +660,19 @@
 						"     columnNamesAsHeader: true) ~> source2",
 						"source2 sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
-						"     deletable:false,",
-						"     insertable:true,",
-						"     updateable:false,",
-						"     upsertable:false,",
 						"     format: 'table',",
+						"     store: 'sqlserver',",
+						"     schemaName: 'INFORMATION_SCHEMA',",
+						"     tableName: 'DOMAINS',",
+						"     insertable: true,",
+						"     updateable: false,",
+						"     deletable: false,",
+						"     upsertable: false,",
 						"     dateFormat:'MM/dd/yyyy',",
 						"     timestampFormat:'MM/dd/yyyy',",
 						"     skipDuplicateMapInputs: true,",
 						"     skipDuplicateMapOutputs: true,",
 						"     errorHandlingOption: 'stopOnFirstError',",
-						"     mapColumn(",
-						"          DOMAIN_CATALOG,",
-						"          DOMAIN_SCHEMA,",
-						"          DOMAIN_NAME,",
-						"          DATA_TYPE,",
-						"          CHARACTER_MAXIMUM_LENGTH,",
-						"          CHARACTER_OCTET_LENGTH,",
-						"          COLLATION_CATALOG,",
-						"          COLLATION_SCHEMA,",
-						"          COLLATION_NAME,",
-						"          CHARACTER_SET_CATALOG,",
-						"          CHARACTER_SET_SCHEMA,",
-						"          CHARACTER_SET_NAME,",
-						"          NUMERIC_PRECISION,",
-						"          NUMERIC_PRECISION_RADIX,",
-						"          NUMERIC_SCALE,",
-						"          DATETIME_PRECISION,",
-						"          DOMAIN_DEFAULT",
-						"     ),",
 						"     partitionBy('roundRobin', 2),",
 						"     fileSystem: 'pipelines',",
 						"     folderPath: 'adf_issue/out/one_partition',",
@@ -701,7 +685,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]",
-				"[concat(variables('factoryId'), '/datasets/AzureSqlTablesink')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDBsink')]"
 			]
 		},
 		{
