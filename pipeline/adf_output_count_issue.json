@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Data flow1",
+				"name": "Partition Repro SQL",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
