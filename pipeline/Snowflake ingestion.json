@@ -52,19 +52,6 @@
 						"referenceName": "DelimitedText1",
 						"type": "DatasetReference"
 					}
-				],
-				"outputs": [
-					{
-						"referenceName": "simio_prod_dynamic",
-						"type": "DatasetReference",
-						"parameters": {
-							"Environment": "Production",
-							"SchemaName": "PUBLIC",
-							"TableName": "FACTSOURCE",
-							"Role": "ACCOUNTADMIN",
-							"DatabaseName": "SIMIO_PROD"
-						}
-					}
 				]
 			}
 		],

@@ -17,10 +17,6 @@
 			],
 			"sinks": [
 				{
-					"dataset": {
-						"referenceName": "DS_STG_FULL_LOAD",
-						"type": "DatasetReference"
-					},
 					"name": "STAGING"
 				}
 			],
