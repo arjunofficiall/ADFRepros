@@ -659,7 +659,7 @@
 						"     quoteChar: '\\\"',",
 						"     columnNamesAsHeader: true) ~> source2",
 						"source2 sink(allowSchemaDrift: true,",
-						"     validateSchema: false,",
+						"     validateSchema: true,",
 						"     format: 'table',",
 						"     store: 'sqlserver',",
 						"     schemaName: 'INFORMATION_SCHEMA',",
