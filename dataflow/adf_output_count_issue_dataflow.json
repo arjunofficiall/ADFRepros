@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"linkedService": {
-						"referenceName": "AzureSqlDatabase1",
+						"referenceName": "AzureSqlDatabase2",
 						"type": "LinkedServiceReference"
 					},
 					"name": "source2"
