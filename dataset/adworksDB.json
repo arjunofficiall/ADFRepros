@@ -9,7 +9,7 @@
 		"type": "AzureSqlTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "INFORMATION",
+			"schema": "INFORMATION_SCHEMA",
 			"table": "COLUMNS"
 		}
 	}
