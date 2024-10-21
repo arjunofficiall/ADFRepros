@@ -70,7 +70,7 @@
 				"     validateSchema: false,",
 				"     format: 'table',",
 				"     store: 'sqlserver',",
-				"     schemaName: 'sys',",
+				"     schemaName: 'dbo',",
 				"     tableName: 'dm_database_backups',",
 				"     insertable: true,",
 				"     updateable: false,",
