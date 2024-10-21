@@ -49,6 +49,7 @@
 				"     schemaName: 'INFORMATION_SCHEMA',",
 				"     tableName: 'DOMAINS',",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     partitionBy('roundRobin', 2),",
 				"     fileSystem: 'pipelines',",
 				"     folderPath: 'adf_issue/in',",
 				"     fileName: 'input.csv',",
