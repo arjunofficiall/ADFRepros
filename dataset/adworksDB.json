@@ -1,0 +1,12 @@
+{
+	"name": "adworksDB",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adworksDBsink",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}

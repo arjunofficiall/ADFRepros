@@ -16,7 +16,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "AzureSqlTablesink",
+						"referenceName": "adworksDB",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
