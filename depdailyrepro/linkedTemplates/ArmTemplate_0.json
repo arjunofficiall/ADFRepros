@@ -31,6 +31,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'Snowflake1'"
 		},
+		"adworksDBsink_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'adworksDBsink'"
+		},
 		"AzureBlobStorage1_sasUri": {
 			"type": "secureString",
 			"metadata": "Secure string for 'sasUri' of 'AzureBlobStorage1'"
@@ -90,6 +94,18 @@
 		"Snowflake1_properties_typeProperties_database": {
 			"type": "string",
 			"defaultValue": "JAYREPRO"
+		},
+		"adworksDBsink_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sqlreproserver.database.windows.net"
+		},
+		"adworksDBsink_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "adworksDB"
+		},
+		"adworksDBsink_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sadmin"
 		}
 	},
 	"variables": {
@@ -406,6 +422,34 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/adworksDBsink')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"server": "[parameters('adworksDBsink_properties_typeProperties_server')]",
+					"database": "[parameters('adworksDBsink_properties_typeProperties_database')]",
+					"encrypt": "mandatory",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('adworksDBsink_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('adworksDBsink_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "AAResolve",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/AAResolve')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlTablesink')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -474,7 +518,7 @@
 					"sources": [
 						{
 							"linkedService": {
-								"referenceName": "AzureSqlDatabase1",
+								"referenceName": "AzureSqlDatabase2",
 								"type": "LinkedServiceReference"
 							},
 							"name": "source2"
@@ -489,35 +533,30 @@
 							"name": "sink2"
 						}
 					],
-					"transformations": [],
+					"transformations": [
+						{
+							"name": "select1"
+						}
+					],
 					"scriptLines": [
 						"source(output(",
-						"          DOMAIN_CATALOG as string,",
-						"          DOMAIN_SCHEMA as string,",
-						"          DOMAIN_NAME as string,",
-						"          DATA_TYPE as string,",
-						"          CHARACTER_MAXIMUM_LENGTH as integer,",
-						"          CHARACTER_OCTET_LENGTH as integer,",
-						"          COLLATION_CATALOG as string,",
-						"          COLLATION_SCHEMA as string,",
-						"          COLLATION_NAME as string,",
-						"          CHARACTER_SET_CATALOG as string,",
-						"          CHARACTER_SET_SCHEMA as string,",
-						"          CHARACTER_SET_NAME as string,",
-						"          NUMERIC_PRECISION as integer,",
-						"          NUMERIC_PRECISION_RADIX as short,",
-						"          NUMERIC_SCALE as integer,",
-						"          DATETIME_PRECISION as short,",
-						"          DOMAIN_DEFAULT as string",
+						"          backup_file_id as string,",
+						"          logical_database_id as string,",
+						"          physical_database_name as string,",
+						"          logical_server_name as string,",
+						"          logical_database_name as string,",
+						"          backup_start_date as timestamp,",
+						"          backup_finish_date as timestamp,",
+						"          backup_type as string,",
+						"          in_retention as boolean",
 						"     ),",
 						"     allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     format: 'table',",
 						"     store: 'sqlserver',",
-						"     schemaName: 'INFORMATION_SCHEMA',",
-						"     tableName: 'DOMAINS',",
+						"     schemaName: 'sys',",
+						"     tableName: 'dm_database_backups',",
 						"     isolationLevel: 'READ_UNCOMMITTED',",
-						"     partitionBy('roundRobin', 2),",
 						"     fileSystem: 'pipelines',",
 						"     folderPath: 'adf_issue/in',",
 						"     fileName: 'input.csv',",
@@ -525,41 +564,36 @@
 						"     escapeChar: '\\\\',",
 						"     quoteChar: '\\\"',",
 						"     columnNamesAsHeader: true) ~> source2",
-						"source2 sink(allowSchemaDrift: true,",
-						"     validateSchema: true,",
+						"source2 select(mapColumn(",
+						"          backup_file_id,",
+						"          logical_database_id,",
+						"          physical_database_name,",
+						"          logical_server_name,",
+						"          logical_database_name,",
+						"          backup_start_date,",
+						"          backup_finish_date,",
+						"          backup_type,",
+						"          in_retention",
+						"     ),",
+						"     partitionBy('roundRobin', 2),",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> select1",
+						"select1 sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
 						"     format: 'table',",
 						"     store: 'sqlserver',",
-						"     schemaName: 'INFORMATION_SCHEMA',",
-						"     tableName: 'DOMAINS',",
+						"     schemaName: 'dbo',",
+						"     tableName: 'dm_database_backups',",
 						"     insertable: true,",
 						"     updateable: false,",
 						"     deletable: false,",
 						"     upsertable: false,",
+						"     recreate: true,",
 						"     dateFormat:'MM/dd/yyyy',",
 						"     timestampFormat:'MM/dd/yyyy',",
 						"     skipDuplicateMapInputs: true,",
 						"     skipDuplicateMapOutputs: true,",
 						"     errorHandlingOption: 'stopOnFirstError',",
-						"     mapColumn(",
-						"          DOMAIN_CATALOG,",
-						"          DOMAIN_SCHEMA,",
-						"          DOMAIN_NAME,",
-						"          DATA_TYPE,",
-						"          CHARACTER_MAXIMUM_LENGTH,",
-						"          CHARACTER_OCTET_LENGTH,",
-						"          COLLATION_CATALOG,",
-						"          COLLATION_SCHEMA,",
-						"          COLLATION_NAME,",
-						"          CHARACTER_SET_CATALOG,",
-						"          CHARACTER_SET_SCHEMA,",
-						"          CHARACTER_SET_NAME,",
-						"          NUMERIC_PRECISION,",
-						"          NUMERIC_PRECISION_RADIX,",
-						"          NUMERIC_SCALE,",
-						"          DATETIME_PRECISION,",
-						"          DOMAIN_DEFAULT",
-						"     ),",
-						"     partitionBy('roundRobin', 2),",
 						"     fileSystem: 'pipelines',",
 						"     folderPath: 'adf_issue/out/one_partition',",
 						"     columnDelimiter: ',',",
@@ -570,111 +604,29 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase2')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDBsink')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/adf_output_count_issue')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
+			"name": "[concat(parameters('factoryName'), '/adworksDB')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"activities": [
-					{
-						"name": "Partition Repro SQL",
-						"type": "ExecuteDataFlow",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataflow": {
-								"referenceName": "adf_output_count_issue_dataflow",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"source2": {},
-									"sink2": {}
-								}
-							},
-							"staging": {},
-							"integrationRuntime": {
-								"referenceName": "AAResolve",
-								"type": "IntegrationRuntimeReference"
-							},
-							"traceLevel": "Fine"
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
+				"linkedServiceName": {
+					"referenceName": "adworksDBsink",
+					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
-				"lastPublishTime": "2024-08-28T14:25:13Z"
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/adf_output_count_issue_dataflow')]",
-				"[concat(variables('factoryId'), '/integrationRuntimes/AAResolve')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Partition_Repro')]",
-			"type": "Microsoft.DataFactory/factories/dataflows",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "MappingDataFlow",
+				"type": "AzureSqlTable",
+				"schema": [],
 				"typeProperties": {
-					"sources": [
-						{
-							"linkedService": {
-								"referenceName": "AzureSqlDatabase1",
-								"type": "LinkedServiceReference"
-							},
-							"name": "SQL",
-							"description": "Import data from BrandBlobStorage"
-						}
-					],
-					"sinks": [
-						{
-							"dataset": {
-								"referenceName": "AzureSqlTablesink",
-								"type": "DatasetReference"
-							},
-							"name": "sink1"
-						}
-					],
-					"transformations": [],
-					"scriptLines": [
-						"source(allowSchemaDrift: true,",
-						"     validateSchema: false,",
-						"     format: 'table',",
-						"     store: 'sqlserver',",
-						"     schemaName: 'sys',",
-						"     tableName: 'all_columns',",
-						"     isolationLevel: 'READ_UNCOMMITTED',",
-						"     partitionBy('roundRobin', 2)) ~> SQL",
-						"SQL sink(allowSchemaDrift: true,",
-						"     validateSchema: true,",
-						"     deletable:false,",
-						"     insertable:true,",
-						"     updateable:false,",
-						"     upsertable:false,",
-						"     format: 'table',",
-						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true,",
-						"     errorHandlingOption: 'stopOnFirstError',",
-						"     outputAssertFailedRows: true) ~> sink1"
-					]
+					"schema": "INFORMATION_SCHEMA",
+					"table": "COLUMNS"
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]",
-				"[concat(variables('factoryId'), '/datasets/AzureSqlTablesink')]"
+				"[concat(variables('factoryId'), '/linkedServices/adworksDBsink')]"
 			]
 		}
 	]

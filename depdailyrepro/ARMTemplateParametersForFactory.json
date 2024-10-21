@@ -23,6 +23,9 @@
 		"simstwus2uatdata_sm_afs_uat_ftp_connectionString": {
 			"value": ""
 		},
+		"adworksDBsink_password": {
+			"value": ""
+		},
 		"AzureBlobStorage1_sasUri": {
 			"value": ""
 		},
@@ -67,6 +70,15 @@
 		},
 		"Snowflake1_properties_typeProperties_database": {
 			"value": "JAYREPRO"
+		},
+		"adworksDBsink_properties_typeProperties_server": {
+			"value": "sqlreproserver.database.windows.net"
+		},
+		"adworksDBsink_properties_typeProperties_database": {
+			"value": "adworksDB"
+		},
+		"adworksDBsink_properties_typeProperties_userName": {
+			"value": "sadmin"
 		}
 	}
 }
