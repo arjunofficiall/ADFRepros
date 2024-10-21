@@ -51,7 +51,7 @@
 				"     format: 'table',",
 				"     store: 'sqlserver',",
 				"     schemaName: 'INFORMATION_SCHEMA',",
-				"     tableName: 'DOMAINS',",
+				"     tableName: 'dm_database_backups',",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     fileSystem: 'pipelines',",
 				"     folderPath: 'adf_issue/in',",
