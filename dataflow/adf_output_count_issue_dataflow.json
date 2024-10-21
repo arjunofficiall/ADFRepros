@@ -21,7 +21,11 @@
 					"name": "sink2"
 				}
 			],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "select1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          DOMAIN_CATALOG as string,",
@@ -49,7 +53,6 @@
 				"     schemaName: 'INFORMATION_SCHEMA',",
 				"     tableName: 'DOMAINS',",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     partitionBy('roundRobin', 2),",
 				"     fileSystem: 'pipelines',",
 				"     folderPath: 'adf_issue/in',",
 				"     fileName: 'input.csv',",
@@ -57,7 +60,29 @@
 				"     escapeChar: '\\\\',",
 				"     quoteChar: '\\\"',",
 				"     columnNamesAsHeader: true) ~> source2",
-				"source2 sink(allowSchemaDrift: true,",
+				"source2 select(mapColumn(",
+				"          DOMAIN_CATALOG,",
+				"          DOMAIN_SCHEMA,",
+				"          DOMAIN_NAME,",
+				"          DATA_TYPE,",
+				"          CHARACTER_MAXIMUM_LENGTH,",
+				"          CHARACTER_OCTET_LENGTH,",
+				"          COLLATION_CATALOG,",
+				"          COLLATION_SCHEMA,",
+				"          COLLATION_NAME,",
+				"          CHARACTER_SET_CATALOG,",
+				"          CHARACTER_SET_SCHEMA,",
+				"          CHARACTER_SET_NAME,",
+				"          NUMERIC_PRECISION,",
+				"          NUMERIC_PRECISION_RADIX,",
+				"          NUMERIC_SCALE,",
+				"          DATETIME_PRECISION,",
+				"          DOMAIN_DEFAULT",
+				"     ),",
+				"     partitionBy('roundRobin', 2),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'table',",
 				"     store: 'sqlserver',",
