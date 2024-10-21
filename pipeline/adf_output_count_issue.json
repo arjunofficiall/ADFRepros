@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "adf_output_count_issue_dataflow",
+						"referenceName": "Partition_Repro",
 						"type": "DataFlowReference"
 					},
 					"integrationRuntime": {
