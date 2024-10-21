@@ -24,6 +24,9 @@
 			"transformations": [
 				{
 					"name": "select1"
+				},
+				{
+					"name": "externalCall1"
 				}
 			],
 			"scriptLines": [
@@ -82,7 +85,12 @@
 				"     partitionBy('roundRobin', 2),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1",
-				"select1 sink(allowSchemaDrift: true,",
+				"select1 call(output(",
+				"          headers as [string,string],",
+				"          status as string",
+				"     ),",
+				"     allowSchemaDrift: true) ~> externalCall1",
+				"externalCall1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'table',",
 				"     store: 'sqlserver',",
@@ -116,7 +124,6 @@
 				"          DATETIME_PRECISION,",
 				"          DOMAIN_DEFAULT",
 				"     ),",
-				"     partitionBy('roundRobin', 2),",
 				"     fileSystem: 'pipelines',",
 				"     folderPath: 'adf_issue/out/one_partition',",
 				"     columnDelimiter: ',',",
