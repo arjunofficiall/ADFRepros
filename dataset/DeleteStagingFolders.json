@@ -1,0 +1,86 @@
+{
+	"name": "DeleteStagingFolders",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "QuorumDataLake",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"StagingFolder": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@dataset().StagingFolder",
+					"type": "Expression"
+				},
+				"fileSystem": "xsellerator"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "AccountId",
+				"type": "UTF8"
+			},
+			{
+				"name": "AccountDescription",
+				"type": "UTF8"
+			},
+			{
+				"name": "AccountSubType",
+				"type": "UTF8"
+			},
+			{
+				"name": "AccountType",
+				"type": "UTF8"
+			},
+			{
+				"name": "DebitCredit",
+				"type": "UTF8"
+			},
+			{
+				"name": "DOC1",
+				"type": "INT32"
+			},
+			{
+				"name": "DOC2",
+				"type": "INT32"
+			},
+			{
+				"name": "DOC3",
+				"type": "INT32"
+			},
+			{
+				"name": "MainVendorAccount",
+				"type": "UTF8"
+			},
+			{
+				"name": "SubledgerTypeId",
+				"type": "INT32"
+			},
+			{
+				"name": "VehicleInventory",
+				"type": "UTF8"
+			},
+			{
+				"name": "LastRefreshDate",
+				"type": "UTF8"
+			},
+			{
+				"name": "QuorumDatabaseId",
+				"type": "UTF8"
+			},
+			{
+				"name": "Timezone",
+				"type": "UTF8"
+			}
+		]
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

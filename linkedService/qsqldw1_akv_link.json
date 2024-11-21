@@ -1,0 +1,11 @@
+{
+	"name": "qsqldw1_akv_link",
+	"type": "Microsoft.Synapse/workspaces/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://data-consolidation-vault.vault.azure.net/"
+		}
+	}
+}
