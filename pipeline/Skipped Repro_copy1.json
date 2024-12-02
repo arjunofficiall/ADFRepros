@@ -35,7 +35,7 @@
 							}
 						}
 					},
-					"enableStaging": false,
+					"enableStaging": true,
 					"enableSkipIncompatibleRow": true,
 					"logSettings": {
 						"enableCopyActivityLog": true,
@@ -47,7 +47,8 @@
 							"linkedServiceName": {
 								"referenceName": "sinkblobskip123",
 								"type": "LinkedServiceReference"
-							}
+							},
+							"path": "logsskiplogs"
 						}
 					},
 					"translator": {
