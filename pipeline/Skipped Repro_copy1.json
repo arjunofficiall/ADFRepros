@@ -33,6 +33,7 @@
 						}
 					},
 					"enableStaging": false,
+					"enableSkipIncompatibleRow": true,
 					"translator": {
 						"value": "@json(variables('AppendedJSONMapping'))",
 						"type": "Expression"
