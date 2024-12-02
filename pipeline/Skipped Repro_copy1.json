@@ -37,6 +37,19 @@
 					},
 					"enableStaging": false,
 					"enableSkipIncompatibleRow": true,
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Warning",
+							"enableReliableLogging": false
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "sinkblobskip123",
+								"type": "LinkedServiceReference"
+							}
+						}
+					},
 					"translator": {
 						"value": "@json(variables('AppendedJSONMapping'))",
 						"type": "Expression"
