@@ -1,0 +1,47 @@
+{
+	"name": "DLBlob123",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Azureblob123",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "skippedreprorows911"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Skip_Column1",
+				"type": "String"
+			},
+			{
+				"name": "Column_A",
+				"type": "String"
+			},
+			{
+				"name": "Column_B",
+				"type": "String"
+			},
+			{
+				"name": "Skip_Column2",
+				"type": "String"
+			},
+			{
+				"name": "Column_C",
+				"type": "String"
+			},
+			{
+				"name": "Skip_Column3",
+				"type": "String"
+			}
+		]
+	}
+}
