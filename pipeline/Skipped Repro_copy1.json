@@ -36,6 +36,13 @@
 						}
 					},
 					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "skiplog123123",
+							"type": "LinkedServiceReference"
+						},
+						"path": "sinkskipped123"
+					},
 					"enableSkipIncompatibleRow": true,
 					"logSettings": {
 						"enableCopyActivityLog": true,
