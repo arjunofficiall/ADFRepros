@@ -32,7 +32,11 @@
 							"type": "SnowflakeImportCopyCommand"
 						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"value": "@json(variables('AppendedJSONMapping'))",
+						"type": "Expression"
+					}
 				},
 				"inputs": [
 					{
@@ -48,6 +52,12 @@
 				]
 			}
 		],
+		"variables": {
+			"AppendedJSONMapping": {
+				"type": "String",
+				"defaultValue": "{\"type\": \"TabularTranslator\", \"mappings\": [{\"source\":{\"name\":\"AppealSystemID\"},\"sink\":{\"name\":\"APPEALSYSTEMID\"}},{\"source\":{\"name\":\"Audience\"},\"sink\":{\"name\":\"SOURCEAUDIENCE\"}},{\"source\":{\"name\":\"CreativeCode\"},\"sink\":{\"name\":\"SOURCEPACKAGECODE\"}},{\"source\":{\"name\":\"CreativeDescription\"},\"sink\":{\"name\":\"SOURCEPACKAGEDESCRIPTION\"}},{\"source\":{\"name\":\"DonorType\"},\"sink\":{\"name\":\"DONORTYPE\"}},{\"source\":{\"name\":\"MailDate\"},\"sink\":{\"name\":\"MEDIAEVENTDATE\"}},{\"source\":{\"name\":\"NumberMailed\"},\"sink\":{\"name\":\"SOURCESENT\"}},{\"source\":{\"name\":\"Panel\"},\"sink\":{\"name\":\"SOURCEPACKAGEPANEL\"}},{\"source\":{\"name\":\"Segment\"},\"sink\":{\"name\":\"SEGMENTDESCRIPTION\"}},{\"source\":{\"name\":\"SourceCode\"},\"sink\":{\"name\":\"SOURCECODE\"}},{\"source\":{\"name\":\"SourceCodeDescription\"},\"sink\":{\"name\":\"APPEALNAME\"}},{\"source\":{\"name\":\"SourceCodeSystemID\"},\"sink\":{\"name\":\"SOURCECODESYSTEMID\"}},{\"source\":{\"name\":\"FILE_ID\"},\"sink\":{\"name\":\"FILE_ID\"}},{\"source\":{\"name\":\"CLIENTID\"},\"sink\":{\"name\":\"CLIENTID\"}}]}"
+			}
+		},
 		"annotations": []
 	}
 }
