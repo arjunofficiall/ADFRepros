@@ -57,10 +57,6 @@
 							},
 							"path": "logsskiplogs"
 						}
-					},
-					"translator": {
-						"value": "@json(variables('AppendedJSONMapping'))",
-						"type": "Expression"
 					}
 				},
 				"inputs": [
