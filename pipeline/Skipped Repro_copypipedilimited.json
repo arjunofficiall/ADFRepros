@@ -70,16 +70,6 @@
 									"name": "SKIP_COLUMN1",
 									"type": "String"
 								}
-							},
-							{
-								"source": {
-									"name": " Cloumn_A ",
-									"type": "String"
-								},
-								"sink": {
-									"name": "COLUMN_A",
-									"type": "String"
-								}
 							}
 						]
 					}
