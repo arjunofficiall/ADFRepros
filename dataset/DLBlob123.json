@@ -25,11 +25,7 @@
 				"type": "String"
 			},
 			{
-				"name": "Column_A",
-				"type": "String"
-			},
-			{
-				"name": "Column_B",
+				"name": "Cloumn_A",
 				"type": "String"
 			},
 			{
