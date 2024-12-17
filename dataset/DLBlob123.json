@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "skiprowsdata.csv",
-				"folderPath": "datacsv",
+				"fileName": "Skiprowspipedilimited.csv",
+				"folderPath": "pipedelimited",
 				"container": "skippedreprorows911"
 			},
 			"columnDelimiter": "|",
