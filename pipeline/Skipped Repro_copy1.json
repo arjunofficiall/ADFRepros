@@ -63,7 +63,7 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "Skip_Column1,Column_A,Column_B,Skip_Column2,Column_C,Skip_Column3",
+									"name": "Skip_Column1",
 									"type": "String"
 								},
 								"sink": {
@@ -73,7 +73,7 @@
 							},
 							{
 								"source": {
-									"name": "COLUMN_A",
+									"name": "Column_A",
 									"type": "String"
 								},
 								"sink": {
