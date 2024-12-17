@@ -72,10 +72,6 @@
 								}
 							},
 							{
-								"source": {
-									"name": "Column_A",
-									"type": "String"
-								},
 								"sink": {
 									"name": "COLUMN_A",
 									"type": "String"
