@@ -73,7 +73,8 @@
 							},
 							{
 								"source": {
-									"name": "COLUMN_A"
+									"name": "COLUMN_A",
+									"type": "String"
 								},
 								"sink": {
 									"name": "COLUMN_A",
