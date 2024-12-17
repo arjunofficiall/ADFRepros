@@ -14,11 +14,20 @@
 				"folderPath": "pipedelimited",
 				"container": "skippedreprorows911"
 			},
-			"columnDelimiter": "|",
+			"columnDelimiter": ",",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "Skip_Column1",
+				"type": "String"
+			},
+			{
+				"name": "Column_A",
+				"type": "String"
+			}
+		]
 	}
 }
