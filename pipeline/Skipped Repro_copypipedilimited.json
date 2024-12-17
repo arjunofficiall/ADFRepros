@@ -57,6 +57,31 @@
 							},
 							"path": "logsskiplogs"
 						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Skip_Column1",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SKIP_COLUMN1",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Cloumn_A",
+									"type": "String"
+								},
+								"sink": {
+									"name": "COLUMN_A",
+									"type": "String"
+								}
+							}
+						]
 					}
 				},
 				"inputs": [
