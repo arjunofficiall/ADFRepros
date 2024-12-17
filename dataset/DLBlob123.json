@@ -19,27 +19,6 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": [
-			{
-				"name": "Skip_Column1",
-				"type": "String"
-			},
-			{
-				"name": "Cloumn_A",
-				"type": "String"
-			},
-			{
-				"name": "Skip_Column2",
-				"type": "String"
-			},
-			{
-				"name": "Column_C",
-				"type": "String"
-			},
-			{
-				"name": "Skip_Column3",
-				"type": "String"
-			}
-		]
+		"schema": []
 	}
 }
