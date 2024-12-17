@@ -9,8 +9,8 @@
 		"type": "SnowflakeV2Table",
 		"schema": [],
 		"typeProperties": {
-			"schema": "Column",
-			"table": ""
+			"schema": "PUBLIC",
+			"table": "SKIPPEDROWS"
 		}
 	}
 }
