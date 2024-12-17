@@ -63,11 +63,17 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "Skip_Column1 ",
+									"name": "Skip_Column1",
 									"type": "String"
 								},
 								"sink": {
 									"name": "SKIP_COLUMN1",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "COLUMN_A",
 									"type": "String"
 								}
 							}
