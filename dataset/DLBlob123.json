@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "samplereproskiprow.txt",
+				"fileName": "commareproskiprows.txt",
 				"folderPath": "pipedelimited",
 				"container": "skippedreprorows911"
 			},
