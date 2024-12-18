@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "commareproskiprows.txt",
+				"fileName": "2columnscsv.txt",
 				"folderPath": "pipedelimited",
 				"container": "skippedreprorows911"
 			},
