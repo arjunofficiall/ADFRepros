@@ -57,6 +57,765 @@
 							},
 							"path": "logsskiplogs"
 						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "create or replace TABLE EXAMPLE_DB.EXAMPLE_SCHEMA.EXAMPLETABLE (",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SOURCECODE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "CLIENTID",
+									"type": "Int64"
+								}
+							},
+							{
+								"sink": {
+									"name": "CHAPTERKEY",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "CAMPAIGNCODE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "CAMPAIGNNAME",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "CAMPAIGNPROGRAMTYPE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "APPEALNAME",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "MEDIAEVENTDATE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "MASTERMEDIAKEY",
+									"type": "Int64"
+								}
+							},
+							{
+								"sink": {
+									"name": "SEGMENTDESCRIPTION",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "MEDIANAME",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "INHOMEDATEKEY",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMEDIATYPE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMEDIAPURCHASEORDER",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "FULFILLMENTPREMIUMCOSTKEY",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEPACKAGECODE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEPACKAGEPANEL",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEPACKAGEDESCRIPTION",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEPREMIUMFREEMIUMNONFREEMIUM",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEPREMIUMFREEMIUMTYPE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEOFFER",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEAUDIENCE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEHOUSEHOLDIMPRESSIONS",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEDIGITALIMPRESSIONS",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCESPOTS",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCESENT",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "COSTPERPIECE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PROGRAM",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "CHANNEL",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "CHANNELTYPE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "CLIENTMEDIACOST",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "FISCALYEAR",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "FREQUENCY",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "FULFILLMENTCOST",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "JOBDESCRIPTION",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "MEDIASEGMENT",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "MEDIACOST",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "MEDIAMARKUP",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "MERGECOST",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "MERGEMARKUP",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "MONETARY",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "OTHERSEGMENTATION",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PACKAGECOST",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "POSTAGECOST",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PREMIUMCOST",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "RECENCY",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "ROLLOUTPACKAGECOST",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SEGMENTCODE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SERIESCODE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "CAMPAIGNJOBKEY",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "CLIENTMEDIAKEY",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "FILE_ID",
+									"type": "Int64"
+								}
+							},
+							{
+								"sink": {
+									"name": "TOTALCOST",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "TOTALROLLOUTCOST",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCECODESYSTEMID",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "APPEALSYSTEMID",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "DONORTYPE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PANELDESCRIPTION",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "LISTCATEGORY",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "LISTSUBCATEGORY",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "LIST_CPM",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PKGCPM_ROLLOUT",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PKGCPM_ACTUAL",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "TOTALCPM_ACTUAL",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "TOTALCPM_ROLLOUT",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "TOTAL_COST",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "RESTRICTED_FLG",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "ACTIVITY",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "CAMPAIGN",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "INITIATIVE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "EFFORT",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PROFILE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCE_DESCR",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "CONTROL_TEST_FLG",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "AUDIENCE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "CAMPAIGNTYPECODE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "DATEMAILED",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEID",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "ADDITIONALINFORMATION",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "ACQUISITIONLISTID",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "MAILACTUALQUANTITY",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "ESTIMATEDRETURNQUANTITY",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "ESTIMATEDREVENUE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "FULFILLMENTBUDGETEDCOST",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "FULFILLMENTACTUALCOST",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCETYPECODE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCETYPEDESC",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEWAVECODE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEWAVEDESC",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "FUNDCODE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "FUNDDESC",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "DROPID",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "CHANNELCODE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PACKAGEINFO",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "VENDORMAILHOUSECODE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "VENDORMAILHOUSEDESC",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "ACTUALLABORCOSTPERTHOUSAND",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "ACTUALOTHERCOSTPERTHOUSAND",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "DROPTOTALQTY",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "TESTTYPECODE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "TESTTYPEDESC",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "BUDGETAMOUNT",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCSTRING01",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCSTRING02",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCSTRING03",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCSTRING04",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCSTRING05",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCSTRING06",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCSTRING07",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCSTRING08",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCSTRING09",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCSTRING10",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCTEXT01",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCTEXT02",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCTEXT03",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCTEXT04",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCTEXT05",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCTEXT06",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCTEXT07",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCTEXT08",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCTEXT09",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SOURCEMISCTEXT10",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "FYMO",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "FYQTR",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "NUMBERSENT",
+									"type": "String"
+								}
+							}
+						]
 					}
 				},
 				"inputs": [
