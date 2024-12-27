@@ -9,7 +9,7 @@
 		"type": "SnowflakeV2Table",
 		"schema": [],
 		"typeProperties": {
-			"schema": "PUBLIC",
+			"schema": "EXAMPLE_",
 			"table": "FACTSOURCE"
 		}
 	}
