@@ -10,9 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "2columnscsv.txt",
-				"folderPath": "pipedelimited",
-				"container": "skippedreprorows911"
+				"fileName": "2RowsSkippedAndLogged.txt",
+				"container": "newdataset"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
