@@ -57,31 +57,6 @@
 							},
 							"path": "logsskiplogs"
 						}
-					},
-					"translator": {
-						"type": "TabularTranslator",
-						"mappings": [
-							{
-								"source": {
-									"name": "create or replace TABLE EXAMPLE_DB.EXAMPLE_SCHEMA.EXAMPLETABLE (",
-									"type": "String"
-								},
-								"sink": {
-									"name": "SKIP_COLUMN1",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "create or replace TABLE EXAMPLE_DB.EXAMPLE_SCHEMA.EXAMPLETABLE (",
-									"type": "String"
-								},
-								"sink": {
-									"name": "COLUMN_A",
-									"type": "String"
-								}
-							}
-						]
 					}
 				},
 				"inputs": [
