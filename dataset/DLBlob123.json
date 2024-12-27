@@ -13,11 +13,48 @@
 				"fileName": "working_skiprows_dataset_cx.txt",
 				"container": "newdataset"
 			},
-			"columnDelimiter": ",",
+			"columnDelimiter": "|",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "ROI_ID",
+				"type": "String"
+			},
+			{
+				"name": "ROI_FAMILY_ID",
+				"type": "String"
+			},
+			{
+				"name": "PHONE_ID",
+				"type": "String"
+			},
+			{
+				"name": "PHONE_NUMBER",
+				"type": "String"
+			},
+			{
+				"name": "PHONE_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "PRIMARY",
+				"type": "String"
+			},
+			{
+				"name": "OK_TO_PHONE",
+				"type": "String"
+			},
+			{
+				"name": "BAD_PHONE",
+				"type": "String"
+			},
+			{
+				"name": "PHONE_SOURCE",
+				"type": "String"
+			}
+		]
 	}
 }

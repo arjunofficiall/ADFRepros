@@ -63,7 +63,7 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "ROI_ID|ROI_FAMILY_ID|PHONE_ID|PHONE_NUMBER|PHONE_TYPE|PRIMARY|OK_TO_PHONE|BAD_PHONE|PHONE_SOURCE",
+									"name": "ROI_ID",
 									"type": "String"
 								},
 								"sink": {
@@ -72,48 +72,80 @@
 								}
 							},
 							{
+								"source": {
+									"name": "ROI_FAMILY_ID",
+									"type": "String"
+								},
 								"sink": {
 									"name": "CLIENTID",
 									"type": "Int64"
 								}
 							},
 							{
+								"source": {
+									"name": "PHONE_ID",
+									"type": "String"
+								},
 								"sink": {
 									"name": "CHAPTERKEY",
 									"type": "String"
 								}
 							},
 							{
+								"source": {
+									"name": "PHONE_NUMBER",
+									"type": "String"
+								},
 								"sink": {
 									"name": "CAMPAIGNCODE",
 									"type": "String"
 								}
 							},
 							{
+								"source": {
+									"name": "PHONE_TYPE",
+									"type": "String"
+								},
 								"sink": {
 									"name": "CAMPAIGNNAME",
 									"type": "String"
 								}
 							},
 							{
+								"source": {
+									"name": "PRIMARY",
+									"type": "String"
+								},
 								"sink": {
 									"name": "CAMPAIGNPROGRAMTYPE",
 									"type": "String"
 								}
 							},
 							{
+								"source": {
+									"name": "OK_TO_PHONE",
+									"type": "String"
+								},
 								"sink": {
 									"name": "APPEALNAME",
 									"type": "String"
 								}
 							},
 							{
+								"source": {
+									"name": "BAD_PHONE",
+									"type": "String"
+								},
 								"sink": {
 									"name": "MEDIAEVENTDATE",
 									"type": "String"
 								}
 							},
 							{
+								"source": {
+									"name": "PHONE_SOURCE",
+									"type": "String"
+								},
 								"sink": {
 									"name": "MASTERMEDIAKEY",
 									"type": "Int64"
