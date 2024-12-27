@@ -63,7 +63,7 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "create or replace TABLE EXAMPLE_DB.EXAMPLE_SCHEMA.EXAMPLETABLE (",
+									"name": "ROI_ID|ROI_FAMILY_ID|PHONE_ID|PHONE_NUMBER|PHONE_TYPE|PRIMARY|OK_TO_PHONE|BAD_PHONE|PHONE_SOURCE",
 									"type": "String"
 								},
 								"sink": {
