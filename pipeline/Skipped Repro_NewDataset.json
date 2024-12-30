@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Skipped Rows",
+				"name": "Skipped Rows ND",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
