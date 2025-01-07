@@ -67,7 +67,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "SOURCECODE",
+									"name": "HHID",
 									"type": "String"
 								}
 							},
@@ -77,8 +77,8 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "CLIENTID",
-									"type": "Int64"
+									"name": "DONORID",
+									"type": "String"
 								}
 							},
 							{
@@ -87,8 +87,8 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "CHAPTERKEY",
-									"type": "String"
+									"name": "PHONEID",
+									"type": "Int64"
 								}
 							},
 							{
@@ -97,7 +97,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "CAMPAIGNCODE",
+									"name": "PHONENUMBER",
 									"type": "String"
 								}
 							},
@@ -107,7 +107,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "CAMPAIGNNAME",
+									"name": "PHONETYPE",
 									"type": "String"
 								}
 							},
@@ -117,7 +117,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "CAMPAIGNPROGRAMTYPE",
+									"name": "PRIMARYPHONE",
 									"type": "String"
 								}
 							},
@@ -127,7 +127,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "APPEALNAME",
+									"name": "OKTOPHONE",
 									"type": "String"
 								}
 							},
@@ -137,7 +137,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "MEDIAEVENTDATE",
+									"name": "BADPHONE",
 									"type": "String"
 								}
 							},
@@ -147,8 +147,8 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "MASTERMEDIAKEY",
-									"type": "Int64"
+									"name": "PHONESOURCE",
+									"type": "String"
 								}
 							}
 						]

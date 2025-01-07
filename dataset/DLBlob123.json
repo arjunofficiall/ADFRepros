@@ -13,7 +13,7 @@
 				"fileName": "working_skiprows_dataset_cx.txt",
 				"container": "newdataset"
 			},
-			"columnDelimiter": ",",
+			"columnDelimiter": "|",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
