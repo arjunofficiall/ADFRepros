@@ -10,10 +10,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "working_skiprows_dataset_cx.txt",
-				"container": "newdataset"
+				"fileName": "doublecomma_repro_skiprows.txt",
+				"container": "2025skiprowreproowndataset"
 			},
-			"columnDelimiter": "|",
+			"columnDelimiter": ",",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
