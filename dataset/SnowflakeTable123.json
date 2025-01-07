@@ -9,8 +9,8 @@
 		"type": "SnowflakeV2Table",
 		"schema": [],
 		"typeProperties": {
-			"schema": "EXAMPLE_SCHEMA",
-			"table": "EXAMPLETABLE"
+			"schema": "",
+			"table": ""
 		}
 	}
 }
