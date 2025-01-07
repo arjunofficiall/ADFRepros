@@ -63,21 +63,91 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "Skip_Column1",
+									"name": "ROI_ID",
 									"type": "String"
 								},
 								"sink": {
-									"name": "SKIP_COLUMN1",
+									"name": "HHID",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "Column_A",
+									"name": "ROI_FAMILY_ID",
 									"type": "String"
 								},
 								"sink": {
-									"name": "COLUMN_A",
+									"name": "DONORID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PHONE_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PHONEID",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "PHONE_NUMBER",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PHONENUMBER",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PHONE_TYPE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PHONETYPE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PRIMARY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PRIMARYPHONE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OK_TO_PHONE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OKTOPHONE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BAD_PHONE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "BADPHONE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PHONE_SOURCE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PHONESOURCE",
 									"type": "String"
 								}
 							}
