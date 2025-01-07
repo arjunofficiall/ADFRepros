@@ -67,8 +67,8 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "HHID",
-									"type": "String"
+									"name": "ID",
+									"type": "Int64"
 								}
 							},
 							{
@@ -77,7 +77,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "DONORID",
+									"name": "NAME",
 									"type": "String"
 								}
 							},
@@ -87,7 +87,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "PHONEID",
+									"name": "LENGTH",
 									"type": "Int64"
 								}
 							},
@@ -97,7 +97,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "PHONENUMBER",
+									"name": "PHON_NUM",
 									"type": "String"
 								}
 							}
