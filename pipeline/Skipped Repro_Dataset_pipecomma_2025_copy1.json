@@ -1,0 +1,129 @@
+{
+	"name": "Skipped Repro_Dataset_pipecomma_2025_copy1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Skipped Rows doublecomma",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SnowflakeV2Sink",
+						"importSettings": {
+							"type": "SnowflakeImportCopyCommand",
+							"additionalCopyOptions": {
+								"ON_ERROR": "CONTINUE"
+							}
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "skiplog123123",
+							"type": "LinkedServiceReference"
+						},
+						"path": "sinkskipped123"
+					},
+					"enableSkipIncompatibleRow": true,
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Warning",
+							"enableReliableLogging": false
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "sinkblobskip123",
+								"type": "LinkedServiceReference"
+							},
+							"path": "logsskiplogs"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "HHID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": " name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DONORID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": " length",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PHONEID",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": " phon_num",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PHONENUMBER",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DLBlob123",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SnowflakeTable123",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"variables": {
+			"AppendedJSONMapping": {
+				"type": "String",
+				"defaultValue": "{\"type\": \"TabularTranslator\", \"mappings\": [{\"source\":{\"name\":\"AppealSystemID\"},\"sink\":{\"name\":\"APPEALSYSTEMID\"}},{\"source\":{\"name\":\"Audience\"},\"sink\":{\"name\":\"SOURCEAUDIENCE\"}},{\"source\":{\"name\":\"CreativeCode\"},\"sink\":{\"name\":\"SOURCEPACKAGECODE\"}},{\"source\":{\"name\":\"CreativeDescription\"},\"sink\":{\"name\":\"SOURCEPACKAGEDESCRIPTION\"}},{\"source\":{\"name\":\"DonorType\"},\"sink\":{\"name\":\"DONORTYPE\"}},{\"source\":{\"name\":\"MailDate\"},\"sink\":{\"name\":\"MEDIAEVENTDATE\"}},{\"source\":{\"name\":\"NumberMailed\"},\"sink\":{\"name\":\"SOURCESENT\"}},{\"source\":{\"name\":\"Panel\"},\"sink\":{\"name\":\"SOURCEPACKAGEPANEL\"}},{\"source\":{\"name\":\"Segment\"},\"sink\":{\"name\":\"SEGMENTDESCRIPTION\"}},{\"source\":{\"name\":\"SourceCode\"},\"sink\":{\"name\":\"SOURCECODE\"}},{\"source\":{\"name\":\"SourceCodeDescription\"},\"sink\":{\"name\":\"APPEALNAME\"}},{\"source\":{\"name\":\"SourceCodeSystemID\"},\"sink\":{\"name\":\"SOURCECODESYSTEMID\"}},{\"source\":{\"name\":\"FILE_ID\"},\"sink\":{\"name\":\"FILE_ID\"}},{\"source\":{\"name\":\"CLIENTID\"},\"sink\":{\"name\":\"CLIENTID\"}}]}"
+			}
+		},
+		"annotations": []
+	}
+}
