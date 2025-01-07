@@ -9,8 +9,8 @@
 		"type": "SnowflakeV2Table",
 		"schema": [],
 		"typeProperties": {
-			"schema": "",
-			"table": ""
+			"schema": "PUBLIC",
+			"table": "NEWTABLE2025"
 		}
 	}
 }
