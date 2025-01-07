@@ -63,7 +63,7 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "ROI_ID",
+									"name": "id",
 									"type": "String"
 								},
 								"sink": {
@@ -73,7 +73,7 @@
 							},
 							{
 								"source": {
-									"name": "ROI_FAMILY_ID",
+									"name": " name",
 									"type": "String"
 								},
 								"sink": {
@@ -83,7 +83,7 @@
 							},
 							{
 								"source": {
-									"name": "PHONE_ID",
+									"name": " length",
 									"type": "String"
 								},
 								"sink": {
@@ -93,7 +93,7 @@
 							},
 							{
 								"source": {
-									"name": "PHONE_NUMBER",
+									"name": " phon_num",
 									"type": "String"
 								},
 								"sink": {
@@ -102,52 +102,92 @@
 								}
 							},
 							{
-								"source": {
-									"name": "PHONE_TYPE",
-									"type": "String"
-								},
 								"sink": {
 									"name": "PHONETYPE",
 									"type": "String"
 								}
 							},
 							{
-								"source": {
-									"name": "PRIMARY",
-									"type": "String"
-								},
 								"sink": {
 									"name": "PRIMARYPHONE",
 									"type": "String"
 								}
 							},
 							{
-								"source": {
-									"name": "OK_TO_PHONE",
-									"type": "String"
-								},
 								"sink": {
 									"name": "OKTOPHONE",
 									"type": "String"
 								}
 							},
 							{
-								"source": {
-									"name": "BAD_PHONE",
-									"type": "String"
-								},
 								"sink": {
 									"name": "BADPHONE",
 									"type": "String"
 								}
 							},
 							{
-								"source": {
-									"name": "PHONE_SOURCE",
-									"type": "String"
-								},
 								"sink": {
 									"name": "PHONESOURCE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "FILE_ID",
+									"type": "Int64"
+								}
+							},
+							{
+								"sink": {
+									"name": "CLIENTID",
+									"type": "Int64"
+								}
+							},
+							{
+								"sink": {
+									"name": "PHONEEXTENSION",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PHONETYPECODE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PHONESTATUSCODE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PHONESTATUSDESC",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "CHAPTERID",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "CHAPTERCODE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "CHAPTERDESC",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PHONESOURCECLIENTTYPECODE",
 									"type": "String"
 								}
 							}
