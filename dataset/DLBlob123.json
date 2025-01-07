@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "working_skiprows_dataset_2025_cx.csv",
-				"container": "repronewdataset2025"
+				"fileName": "working_skiprows_dataset_cx.txt",
+				"container": "newdataset"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
