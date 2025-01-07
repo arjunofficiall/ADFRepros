@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "doublecomma_repro_skiprows.txt",
+				"fileName": "2025_comma&pipe_skiprows.txt",
 				"container": "2025skiprowreproowndataset"
 			},
 			"columnDelimiter": ",",
