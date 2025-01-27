@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "HD Insights Hadoop Test Repro",
+				"name": "HD Insights Hadoop EAST US",
 				"type": "HDInsightSpark",
 				"dependsOn": [],
 				"policy": {
