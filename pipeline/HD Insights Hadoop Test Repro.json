@@ -1,9 +1,9 @@
 {
-	"name": "pipeline2",
+	"name": "HD Insights Hadoop Test Repro",
 	"properties": {
 		"activities": [
 			{
-				"name": "Spark1",
+				"name": "HD",
 				"type": "HDInsightSpark",
 				"dependsOn": [],
 				"policy": {
