@@ -1,0 +1,11 @@
+{
+	"name": "SNOWFLAKEPK",
+	"properties": {
+		"description": "snowflake private key",
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://adftosnowflake.vault.azure.net/"
+		}
+	}
+}
