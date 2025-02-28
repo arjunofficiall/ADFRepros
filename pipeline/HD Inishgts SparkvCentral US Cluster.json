@@ -1,5 +1,5 @@
 {
-	"name": "HD Inishgts Spark Canada Central",
+	"name": "HD Inishgts SparkvCentral US Cluster",
 	"properties": {
 		"activities": [
 			{
@@ -23,7 +23,7 @@
 					}
 				},
 				"linkedServiceName": {
-					"referenceName": "linkedService2",
+					"referenceName": "linkedService3",
 					"type": "LinkedServiceReference"
 				}
 			}
