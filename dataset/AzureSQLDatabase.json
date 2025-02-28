@@ -1,10 +1,6 @@
 {
 	"name": "AzureSQLDatabase",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "AzureSynapseAnalytics",
-			"type": "LinkedServiceReference"
-		},
 		"parameters": {
 			"TableName": {
 				"type": "string"

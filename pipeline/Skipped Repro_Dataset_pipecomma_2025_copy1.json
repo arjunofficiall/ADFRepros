@@ -36,28 +36,7 @@
 						}
 					},
 					"enableStaging": true,
-					"stagingSettings": {
-						"linkedServiceName": {
-							"referenceName": "skiplog123123",
-							"type": "LinkedServiceReference"
-						},
-						"path": "sinkskipped123"
-					},
 					"enableSkipIncompatibleRow": true,
-					"logSettings": {
-						"enableCopyActivityLog": true,
-						"copyActivityLogSettings": {
-							"logLevel": "Warning",
-							"enableReliableLogging": false
-						},
-						"logLocationSettings": {
-							"linkedServiceName": {
-								"referenceName": "sinkblobskip123",
-								"type": "LinkedServiceReference"
-							},
-							"path": "logsskiplogs"
-						}
-					},
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [

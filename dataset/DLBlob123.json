@@ -1,10 +1,6 @@
 {
 	"name": "DLBlob123",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "Azureblob123",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {

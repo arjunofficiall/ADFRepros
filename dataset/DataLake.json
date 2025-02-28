@@ -1,10 +1,6 @@
 {
 	"name": "DataLake",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "QuorumDataLake",
-			"type": "LinkedServiceReference"
-		},
 		"parameters": {
 			"FileSystem": {
 				"type": "string"

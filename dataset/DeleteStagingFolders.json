@@ -1,10 +1,6 @@
 {
 	"name": "DeleteStagingFolders",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "QuorumDataLake",
-			"type": "LinkedServiceReference"
-		},
 		"parameters": {
 			"StagingFolder": {
 				"type": "string"
