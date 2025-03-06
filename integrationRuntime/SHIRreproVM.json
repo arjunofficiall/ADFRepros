@@ -1,0 +1,7 @@
+{
+	"name": "SHIRreproVM",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "This is 5.50 version os SHIR installed on Repro VM hosted on v-parjun"
+	}
+}
