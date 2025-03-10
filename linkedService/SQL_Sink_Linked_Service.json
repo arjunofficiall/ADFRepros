@@ -1,0 +1,21 @@
+{
+	"name": "SQL_Sink_Linked_Service",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "sql-server-repro-2025.database.windows.net",
+			"database": "SQL_DB_Sink",
+			"encrypt": "optional",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "sadmin",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJhNTliZTkwYi1hYjllLTRiYzgtOTE5OC1mZTNlMGI3YmQ1NmYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "reprovmshir",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
