@@ -1,0 +1,35 @@
+{
+	"name": "AzurePostgreSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [
+			{
+				"name": "grantee",
+				"type": "name",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "role_name",
+				"type": "name",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "is_grantable",
+				"type": "character varying",
+				"precision": 0,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "information_schema",
+			"table": "applicable_roles"
+		}
+	}
+}
