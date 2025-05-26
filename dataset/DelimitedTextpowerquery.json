@@ -1,0 +1,68 @@
+{
+	"name": "DelimitedTextpowerquery",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage123456789",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "FULL_vwrefcustomersegmentation_20250505_030457.csv",
+				"fileSystem": "vwrefcustomersegmentation"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "SrcSysBusinessId",
+				"type": "String"
+			},
+			{
+				"name": "ERPNum",
+				"type": "String"
+			},
+			{
+				"name": "ERPCustMajorClass",
+				"type": "String"
+			},
+			{
+				"name": "EnterpriseCustFinSegment",
+				"type": "String"
+			},
+			{
+				"name": "EnterpriseCustClass",
+				"type": "String"
+			},
+			{
+				"name": "RecordActiveInd",
+				"type": "String"
+			},
+			{
+				"name": "CreatedBy",
+				"type": "String"
+			},
+			{
+				"name": "UpdatedBy",
+				"type": "String"
+			},
+			{
+				"name": "CreatedDt",
+				"type": "String"
+			},
+			{
+				"name": "UpdatedDt",
+				"type": "String"
+			},
+			{
+				"name": "Comments",
+				"type": "String"
+			}
+		]
+	}
+}
