@@ -31,7 +31,11 @@
 							"type": "AzureBlobStorageWriteSettings"
 						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"skipErrorFile": {
+						"dataInconsistency": true
+					},
+					"validateDataConsistency": true
 				},
 				"inputs": [
 					{
