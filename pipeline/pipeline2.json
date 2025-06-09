@@ -32,10 +32,7 @@
 						}
 					},
 					"enableStaging": false,
-					"skipErrorFile": {
-						"dataInconsistency": true
-					},
-					"validateDataConsistency": true
+					"validateDataConsistency": false
 				},
 				"inputs": [
 					{
