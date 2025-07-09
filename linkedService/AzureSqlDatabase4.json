@@ -1,0 +1,16 @@
+{
+	"name": "AzureSqlDatabase4",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=reprosqlmay2025.database.windows.net;initial catalog=sql_repro_may_2025;user id=sadmin",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDY0MjI4MkYzLTgxNzAtNDM5RC1CNDc2LTk3MDMzQjgwNDM4OF81OWY3NGJlZi0zODFlLTQ2MDYtYWI3MC04MmNlNGU3ZjM0YjAiDQp9"
+		},
+		"connectVia": {
+			"referenceName": "AAResolve",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
