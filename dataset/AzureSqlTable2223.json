@@ -1,0 +1,91 @@
+{
+	"name": "AzureSqlTable2223",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "RECID",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "TRACKINGID",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "TRACKINGCONTEXT",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CREATEDDATETIME",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "TRACKINGTYPE",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "ELEMENTID",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "STEPID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "WORKFLOWTRACKINGSTATUSTABLE",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "WORKFLOWELEMENTTABLE",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "WORKFLOWSTEPTABLE",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "WORKFLOWPARALLELBRANCHTABLE",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "WORKFLOWSUBWORKFLOW",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TRACKINGDATETIMETICKCOUNT",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "RECVERSION",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PARTITION",
+				"type": "bigint",
+				"precision": 19
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "repro"
+		}
+	}
+}

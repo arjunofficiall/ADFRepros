@@ -3,7 +3,18 @@
 	"properties": {
 		"type": "WranglingDataFlow",
 		"typeProperties": {
-			"sources": []
+			"sources": [
+				{
+					"name": "AzureSqlTable2223",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~>  AzureSqlTable2223",
+					"dataset": {
+						"referenceName": "AzureSqlTable2223",
+						"type": "DatasetReference"
+					}
+				}
+			],
+			"script": "section Section1;\r\nshared AzureSqlTable2223 = let AdfDoc = Sql.Database(\"reprosqlmay2025.database.windows.net\", \"sql_repro_may_2025\", [CreateNavigationProperties = false]), InputTable = AdfDoc{[Schema=\"dbo\",Item=\"repro\"]}[Data] in InputTable;\r\nshared UserQuery = let Source = #\"AzureSqlTable2223\" in Source;\r\n",
+			"documentLocale": "en-us"
 		}
 	}
 }
